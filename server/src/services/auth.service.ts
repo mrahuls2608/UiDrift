@@ -26,15 +26,24 @@ export function verifyToken(token: string): string | null {
   }
 }
 
+function toUserDTO(user: {
+  _id: { toString(): string };
+  email: string;
+  name?: string | null;
+}): UserDTO {
+  return { id: user._id.toString(), email: user.email, ...(user.name ? { name: user.name } : {}) };
+}
+
 export async function signup(input: CredentialsInput): Promise<UserDTO> {
   if (await User.exists({ email: input.email })) {
     throw new AppError(409, 'EMAIL_TAKEN', 'An account with this email already exists.');
   }
   const user = await User.create({
     email: input.email,
+    name: input.name,
     passwordHash: await bcrypt.hash(input.password, BCRYPT_ROUNDS),
   });
-  return { id: user._id.toString(), email: user.email };
+  return toUserDTO(user);
 }
 
 export async function login(input: CredentialsInput): Promise<UserDTO> {
@@ -42,10 +51,10 @@ export async function login(input: CredentialsInput): Promise<UserDTO> {
   const ok = await bcrypt.compare(input.password, user?.passwordHash ?? DUMMY_HASH);
   if (!user || !ok)
     throw new AppError(401, 'INVALID_CREDENTIALS', 'Email or password is incorrect.');
-  return { id: user._id.toString(), email: user.email };
+  return toUserDTO(user);
 }
 
 export async function getUser(userId: string): Promise<UserDTO | null> {
   const user = await User.findById(userId);
-  return user ? { id: user._id.toString(), email: user.email } : null;
+  return user ? toUserDTO(user) : null;
 }

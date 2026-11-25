@@ -14,7 +14,8 @@ import { useCancelScan } from '@/hooks/queries';
 import { useScanEvents } from '@/hooks/use-scan-events';
 import { formatDateTime } from '@/lib/format';
 
-const STEPS = ['Queued', 'Crawling', 'Extracting', 'Analysing', 'Done'];
+const URL_STEPS = ['Queued', 'Crawling', 'Extracting', 'Analysing', 'Done'];
+const SOURCE_STEPS = ['Queued', 'Reading', 'Parsing', 'Analysing', 'Done'];
 const STEP_INDEX = {
   queued: 0,
   crawling: 1,
@@ -84,7 +85,9 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
       <Card className="flex flex-col gap-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex min-w-0 flex-col gap-1">
-            <p className="eyebrow">Scanning</p>
+            <p className="eyebrow">
+              {scan.kind === 'source' ? 'Auditing source code' : 'Auditing website'}
+            </p>
             <p className="break-all font-mono text-lg font-semibold">{scan.url}</p>
             <p className="text-xs text-muted">Started {formatDateTime(scan.createdAt)}</p>
           </div>
@@ -94,7 +97,7 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
         </div>
 
         <ProgressSteps
-          steps={STEPS}
+          steps={scan.kind === 'source' ? SOURCE_STEPS : URL_STEPS}
           current={current === -1 ? failedAt : current}
           failed={current === -1}
         />
@@ -102,7 +105,7 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
         <div>
           <div className="mb-2 flex justify-between text-sm">
             <span aria-live="polite">{step || 'Working…'}</span>
-            {pagesTotal > 0 && scan.status === 'crawling' && (
+            {pagesTotal > 1 && scan.kind !== 'source' && scan.status === 'crawling' && (
               <span className="text-muted">
                 page {Math.min(pagesDone + 1, pagesTotal)} of up to {pagesTotal}
               </span>
@@ -117,7 +120,7 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
             className="h-2 w-full overflow-hidden rounded-full bg-surface-2"
           >
             <div
-              className="glow h-full rounded-full bg-primary transition-all duration-200"
+              className="h-full rounded-full bg-brand transition-all duration-200"
               style={{ width: `${percent}%` }}
             />
           </div>
@@ -145,20 +148,14 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
             </Button>
           )}
           {finished && scan.status !== 'done' && (
-            <Link
-              href={`/?url=${encodeURIComponent(scan.url)}`}
-              className={buttonClasses('primary')}
-            >
+            <Link href="/new" className={buttonClasses('primary')}>
               Try again
             </Link>
           )}
         </div>
       </Card>
 
-      <section
-        aria-labelledby="log-heading"
-        className="overflow-hidden rounded-lg border border-border bg-bg"
-      >
+      <section aria-labelledby="log-heading" className="glass overflow-hidden rounded-lg">
         <div className="flex items-center justify-between gap-2 border-b border-border bg-surface px-4 py-3">
           <h2 id="log-heading" className="flex items-center gap-2 font-mono text-sm font-semibold">
             <span

@@ -16,6 +16,8 @@ export default defineConfig({
         'src/services/generator/**',
         'src/services/crawler/url-guard.ts',
         'src/services/crawler/robots.ts',
+        'src/services/source/**',
+        'src/services/insights/**',
       ],
       thresholds: { lines: 70, functions: 70, branches: 70, statements: 70 },
     },

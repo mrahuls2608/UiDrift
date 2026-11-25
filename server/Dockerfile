@@ -9,6 +9,7 @@ COPY web/package.json web/
 RUN npm ci --ignore-scripts
 COPY shared shared
 COPY server server
+COPY samples samples
 RUN npm run build -w shared && npm run build -w server
 
 # Production dependencies only, for the server and shared workspaces.
@@ -34,6 +35,9 @@ COPY --from=build /app/shared/package.json shared/
 COPY --from=build /app/shared/dist shared/dist
 COPY --from=build /app/server/package.json server/
 COPY --from=build /app/server/dist server/dist
+# Seed data: recorded website crawl + the sample project for source audits (npm run seed).
+COPY --from=build /app/server/seed server/seed
+COPY --from=build /app/samples samples
 USER node
 EXPOSE 4000
 ENTRYPOINT ["dumb-init", "--"]

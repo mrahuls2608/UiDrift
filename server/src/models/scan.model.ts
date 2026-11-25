@@ -6,7 +6,13 @@ export const ANON_RETENTION_DAYS = 30;
 const scanSchema = new Schema(
   {
     userId: { type: Schema.Types.ObjectId, ref: 'User', index: true },
+    kind: { type: String, enum: ['url', 'source'], default: 'url', required: true },
+    /** Website URL, GitHub repository URL, or a label for uploaded/pasted files. */
     url: { type: String, required: true },
+    sourceType: { type: String, enum: ['github', 'files'] },
+    insightsEngine: { type: String, enum: ['rules', 'llm'], default: 'rules' },
+    llmProvider: { type: String, enum: ['anthropic', 'openai', 'openai-compatible'] },
+    llmModel: { type: String },
     domain: { type: String, required: true, index: true },
     maxPages: { type: Number, required: true, min: 1, max: 10 },
     status: {
@@ -22,11 +28,12 @@ const scanSchema = new Schema(
     },
     pagesScanned: { type: [String], default: [] },
     isDemo: { type: Boolean, default: false, index: true },
-    isPublic: { type: Boolean, default: true },
+    /** Reports are private to their owner; demo reports are visible to every signed-in user. */
+    isPublic: { type: Boolean, default: false },
     score: { type: Number },
     error: { type: String },
     completedAt: { type: Date },
-    /** Set only for anonymous, non-demo scans. A TTL index deletes the scan after this date. */
+    /** Optional retention date; a TTL index deletes the scan after it. */
     expireAt: { type: Date },
   },
   { timestamps: { createdAt: true, updatedAt: false } },
@@ -46,8 +53,11 @@ export function anonExpiry(from = new Date()): Date {
 export function toScanDTO(scan: ScanDocument): ScanDTO {
   return {
     id: scan._id.toString(),
+    kind: scan.kind ?? 'url',
     url: scan.url,
     domain: scan.domain,
+    insightsEngine: scan.insightsEngine ?? 'rules',
+    llmProvider: scan.llmProvider ?? undefined,
     status: scan.status,
     progress: {
       pagesDone: scan.progress?.pagesDone ?? 0,

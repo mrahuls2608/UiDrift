@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Providers } from './providers';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import './globals.css';
 
-const sans = IBM_Plex_Sans({
+const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#0b1120' },
-    { media: '(prefers-color-scheme: dark)', color: '#0b1120' },
+    { media: '(prefers-color-scheme: light)', color: '#eef0f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#eef0f8' },
   ],
 };
 

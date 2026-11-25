@@ -26,6 +26,8 @@ const handler: Options['handler'] = (_req, res, _next, options) => {
 export const scanLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   limit: env.SCAN_RATE_LIMIT_PER_HOUR,
+  // Audits require login, so limit per account (falls back to IP).
+  keyGenerator: (req) => (req.userId ? `user:${req.userId}` : `ip:${req.ip}`),
   standardHeaders: 'draft-7',
   legacyHeaders: false,
   handler,

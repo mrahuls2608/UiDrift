@@ -1,0 +1,1466 @@
+{
+ "score": {
+  "overall": 56,
+  "components": 68,
+  "colors": 63,
+  "typography": 80,
+  "spacing": 57,
+  "radius": 44,
+  "a11yPenalty": 10
+ },
+ "summary": {
+  "components": [
+   {
+    "type": "button",
+    "variants": 11,
+    "ideal": 3
+   },
+   {
+    "type": "input",
+    "variants": 3,
+    "ideal": 2
+   },
+   {
+    "type": "heading",
+    "variants": 7,
+    "ideal": 6
+   },
+   {
+    "type": "link",
+    "variants": 3,
+    "ideal": 3
+   },
+   {
+    "type": "card",
+    "variants": 5,
+    "ideal": 3
+   }
+  ],
+  "colors": {
+   "actual": 19,
+   "ideal": 12
+  },
+  "fontSizes": {
+   "actual": 10,
+   "ideal": 8
+  },
+  "spacing": {
+   "actual": 14,
+   "ideal": 8
+  },
+  "radius": {
+   "actual": 9,
+   "ideal": 4
+  },
+  "a11yIssues": 14
+ },
+ "componentGroups": [
+  {
+   "type": "button",
+   "fingerprint": "bg=#0ea5e9|color=#ffffff|fontSize=16px|fontWeight=400|paddingY=10px|paddingX=18px|radius=8px|border=none|shadow=none",
+   "styles": {
+    "bg": "#0ea5e9",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "18px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/components/Button.tsx:18",
+    "src/pages/Settings.vue:14"
+   ],
+   "sampleText": "Choose Pro",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#2563eb|color=#ffffff|fontSize=14px|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "#2563eb",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/components/Button.tsx:16",
+    "src/components/PromoBanner.tsx:4"
+   ],
+   "sampleText": "Save",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#2464ea|color=#ffffff|fontSize=inherit|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "#2464ea",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/pages/Checkout.tsx:8",
+    "src/styles/global.css:19"
+   ],
+   "sampleText": "Pay now",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#dc2626|color=#ffffff|fontSize=inherit|fontWeight=400|paddingY=8px|paddingX=16px|radius=2px|border=none|shadow=none",
+   "styles": {
+    "bg": "#dc2626",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "16px",
+    "radius": "2px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/pages/Checkout.tsx:9",
+    "src/styles/global.css:21"
+   ],
+   "sampleText": "Cancel",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#111827|color=#ffffff|fontSize=inherit|fontWeight=400|paddingY=10px|paddingX=22px|radius=0px|border=none|shadow=none",
+   "styles": {
+    "bg": "#111827",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "22px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "uppercase"
+   },
+   "count": 1,
+   "pages": [
+    "public/index.html:6"
+   ],
+   "sampleText": ".legacy-btn",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#7c3aed|color=#ffffff|fontSize=18px|fontWeight=700|paddingY=14px|paddingX=32px|radius=12px|border=none|shadow=0 10px 16px -2px #0000001a, 0 4px 6px -4px #0000001a",
+   "styles": {
+    "bg": "#7c3aed",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "18px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "14px",
+    "paddingX": "32px",
+    "radius": "12px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "0 10px 16px -2px #0000001a, 0 4px 6px -4px #0000001a",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/Button.tsx:17"
+   ],
+   "sampleText": "Book a demo",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#f3f4f6|color=inherit|fontSize=inherit|fontWeight=400|paddingY=8px|paddingX=8px|radius=9999px|border=none|shadow=none",
+   "styles": {
+    "bg": "#f3f4f6",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "8px",
+    "radius": "9999px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Checkout.tsx:10"
+   ],
+   "sampleText": "p-2 rounded-full bg-gray-100",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=transparent|color=inherit|fontSize=14px|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:18"
+   ],
+   "sampleText": ".btn",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#ffffff|color=#2563eb|fontSize=inherit|fontWeight=400|paddingY=8px|paddingX=16px|radius=9999px|border=1px solid #2563eb|shadow=none",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "#2563eb",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "16px",
+    "radius": "9999px",
+    "border": "1px solid #2563eb",
+    "borderColor": "#2563eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:20"
+   ],
+   "sampleText": ".btn-secondary",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#1d4ed8|color=#ffffff|fontSize=16px|fontWeight=700|paddingY=12px|paddingX=28px|radius=10px|border=none|shadow=none",
+   "styles": {
+    "bg": "#1d4ed8",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "12px",
+    "paddingX": "28px",
+    "radius": "10px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:7"
+   ],
+   "sampleText": ".hero .cta-button",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#16a34a|color=#ffffff|fontSize=14px|fontWeight=400|paddingY=6px|paddingX=12px|radius=4px|border=none|shadow=none",
+   "styles": {
+    "bg": "#16a34a",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "6px",
+    "paddingX": "12px",
+    "radius": "4px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:32"
+   ],
+   "sampleText": ".subscribe-btn",
+   "suggested": false
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=transparent|color=inherit|fontSize=14px|paddingY=8px|paddingX=12px|radius=6px|border=1px solid #d1d5db|shadow=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "12px",
+    "radius": "6px",
+    "border": "1px solid #d1d5db",
+    "borderColor": "#d1d5db",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 3,
+   "pages": [
+    "src/pages/Checkout.tsx:7",
+    "src/styles/global.css:28"
+   ],
+   "sampleText": "px-3 py-2 border border-gray-300 rounded",
+   "suggested": true
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=transparent|color=inherit|fontSize=16px|paddingY=10px|paddingX=14px|radius=0px|border=2px solid #9ca3af|shadow=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "14px",
+    "radius": "0px",
+    "border": "2px solid #9ca3af",
+    "borderColor": "#9ca3af",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Checkout.tsx:6"
+   ],
+   "sampleText": "",
+   "suggested": true
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=#f8fafc|color=inherit|fontSize=inherit|paddingY=10px|paddingX=12px|radius=9999px|border=1px solid #cbd5e1|shadow=none",
+   "styles": {
+    "bg": "#f8fafc",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "12px",
+    "radius": "9999px",
+    "border": "1px solid #cbd5e1",
+    "borderColor": "#cbd5e1",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Settings.vue:13"
+   ],
+   "sampleText": ".field",
+   "suggested": false
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=42px|fontWeight=800|color=#0f172a",
+   "styles": {
+    "bg": "transparent",
+    "color": "#0f172a",
+    "fontFamily": "inherit",
+    "fontSize": "42px",
+    "fontWeight": "800",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/pages/Checkout.tsx:4",
+    "src/styles/global.css:13"
+   ],
+   "sampleText": "h1",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=26px|fontWeight=700|color=#222222",
+   "styles": {
+    "bg": "transparent",
+    "color": "#222222",
+    "fontFamily": "inherit",
+    "fontSize": "26px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/PromoBanner.tsx:25"
+   ],
+   "sampleText": "PromoTitle",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=28px|fontWeight=600|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inherit",
+    "fontSize": "28px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Settings.vue:12"
+   ],
+   "sampleText": ".settings-title",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=30px|fontWeight=700|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inherit",
+    "fontSize": "30px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:14"
+   ],
+   "sampleText": "h2",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=20px|fontWeight=600|color=#374151",
+   "styles": {
+    "bg": "transparent",
+    "color": "#374151",
+    "fontFamily": "inherit",
+    "fontSize": "20px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:15"
+   ],
+   "sampleText": "h3",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=40px|fontWeight=700|color=#111111",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111111",
+    "fontFamily": "inherit",
+    "fontSize": "40px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:16"
+   ],
+   "sampleText": ".page-title",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=44px|fontWeight=400|color=#111827",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111827",
+    "fontFamily": "inherit",
+    "fontSize": "44px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:6"
+   ],
+   "sampleText": ".hero h1",
+   "suggested": false
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#3b82f6|fontSize=14px|fontWeight=400|textDecoration=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "#3b82f6",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/pages/Settings.vue:15",
+    "src/styles/global.css:11"
+   ],
+   "sampleText": ".help-link",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#3b82f6|fontSize=14px|fontWeight=400|textDecoration=underline",
+   "styles": {
+    "bg": "transparent",
+    "color": "#3b82f6",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "underline",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/Button.tsx:19"
+   ],
+   "sampleText": "See pricing",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#2563eb|fontSize=14px|fontWeight=400|textDecoration=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "#2563eb",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:10"
+   ],
+   "sampleText": "a",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=transparent|radius=4px|border=none|shadow=0 2px 4px #00000033|paddingY=20px|paddingX=20px",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "20px",
+    "paddingX": "20px",
+    "radius": "4px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "0 2px 4px #00000033",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "public/index.html:7"
+   ],
+   "sampleText": ".legacy-card",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#ffffff|radius=14px|border=1px solid #e5e7eb|shadow=0 4px 14px #7c3aed40|paddingY=18px|paddingX=18px",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "18px",
+    "paddingX": "18px",
+    "radius": "14px",
+    "border": "1px solid #e5e7eb",
+    "borderColor": "#e5e7eb",
+    "shadow": "0 4px 14px #7c3aed40",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/PromoBanner.tsx:17"
+   ],
+   "sampleText": "PromoCard",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#ffffff|radius=12px|border=1px solid #e5e7eb|shadow=none|paddingY=16px|paddingX=16px",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "16px",
+    "paddingX": "16px",
+    "radius": "12px",
+    "border": "1px solid #e5e7eb",
+    "borderColor": "#e5e7eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:25"
+   ],
+   "sampleText": ".card",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#f9fafb|radius=8px|border=none|shadow=0 2px 8px #00000026|paddingY=24px|paddingX=24px",
+   "styles": {
+    "bg": "#f9fafb",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "24px",
+    "paddingX": "24px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "0 2px 8px #00000026",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:18"
+   ],
+   "sampleText": ".pricing-card",
+   "suggested": false
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=transparent|radius=20px|border=2px solid #dbeafe|shadow=none|paddingY=20px|paddingX=20px",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "20px",
+    "paddingX": "20px",
+    "radius": "20px",
+    "border": "2px solid #dbeafe",
+    "borderColor": "#dbeafe",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:26"
+   ],
+   "sampleText": ".feature-card",
+   "suggested": false
+  }
+ ],
+ "colors": [
+  {
+   "hex": "#ffffff",
+   "merged": [
+    "#ffffff",
+    "#f3f4f6",
+    "#f8fafc",
+    "#f9fafb"
+   ],
+   "count": 20
+  },
+  {
+   "hex": "#2563eb",
+   "merged": [
+    "#2563eb",
+    "#2464ea"
+   ],
+   "count": 8
+  },
+  {
+   "hex": "#111827",
+   "merged": [
+    "#111827",
+    "#0f172a"
+   ],
+   "count": 5
+  },
+  {
+   "hex": "#3b82f6",
+   "merged": [
+    "#3b82f6"
+   ],
+   "count": 3
+  },
+  {
+   "hex": "#d1d5db",
+   "merged": [
+    "#d1d5db"
+   ],
+   "count": 3
+  },
+  {
+   "hex": "#0ea5e9",
+   "merged": [
+    "#0ea5e9"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#1d4ed8",
+   "merged": [
+    "#1d4ed8"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#1f2937",
+   "merged": [
+    "#1f2937"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#9ca3af",
+   "merged": [
+    "#9ca3af"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#dc2626",
+   "merged": [
+    "#dc2626"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#e5e7eb",
+   "merged": [
+    "#e5e7eb"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#111111",
+   "merged": [
+    "#111111"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#16a34a",
+   "merged": [
+    "#16a34a"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#222222",
+   "merged": [
+    "#222222"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#374151",
+   "merged": [
+    "#374151"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#7c3aed",
+   "merged": [
+    "#7c3aed"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#a3a3a3",
+   "merged": [
+    "#a3a3a3"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#cbd5e1",
+   "merged": [
+    "#cbd5e1"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#dbeafe",
+   "merged": [
+    "#dbeafe"
+   ],
+   "count": 1
+  }
+ ],
+ "fontSizes": [
+  {
+   "value": "14px",
+   "count": 12
+  },
+  {
+   "value": "16px",
+   "count": 5
+  },
+  {
+   "value": "18px",
+   "count": 2
+  },
+  {
+   "value": "44px",
+   "count": 2
+  },
+  {
+   "value": "20px",
+   "count": 1
+  },
+  {
+   "value": "26px",
+   "count": 1
+  },
+  {
+   "value": "28px",
+   "count": 1
+  },
+  {
+   "value": "30px",
+   "count": 1
+  },
+  {
+   "value": "40px",
+   "count": 1
+  },
+  {
+   "value": "42px",
+   "count": 1
+  }
+ ],
+ "fontFamilies": [
+  {
+   "value": "inter",
+   "count": 1
+  }
+ ],
+ "spacing": [
+  {
+   "value": "10px",
+   "count": 24
+  },
+  {
+   "value": "20px",
+   "count": 16
+  },
+  {
+   "value": "8px",
+   "count": 14
+  },
+  {
+   "value": "16px",
+   "count": 14
+  },
+  {
+   "value": "12px",
+   "count": 12
+  },
+  {
+   "value": "18px",
+   "count": 10
+  },
+  {
+   "value": "24px",
+   "count": 6
+  },
+  {
+   "value": "6px",
+   "count": 4
+  },
+  {
+   "value": "14px",
+   "count": 4
+  },
+  {
+   "value": "22px",
+   "count": 4
+  },
+  {
+   "value": "30px",
+   "count": 4
+  },
+  {
+   "value": "32px",
+   "count": 4
+  },
+  {
+   "value": "28px",
+   "count": 2
+  },
+  {
+   "value": "48px",
+   "count": 2
+  }
+ ],
+ "radius": [
+  {
+   "value": "6px",
+   "count": 7
+  },
+  {
+   "value": "8px",
+   "count": 4
+  },
+  {
+   "value": "9999px",
+   "count": 3
+  },
+  {
+   "value": "2px",
+   "count": 2
+  },
+  {
+   "value": "4px",
+   "count": 2
+  },
+  {
+   "value": "12px",
+   "count": 2
+  },
+  {
+   "value": "10px",
+   "count": 1
+  },
+  {
+   "value": "14px",
+   "count": 1
+  },
+  {
+   "value": "20px",
+   "count": 1
+  }
+ ],
+ "a11y": [
+  {
+   "id": "image-alt",
+   "impact": "critical",
+   "help": "Images must have alternative text",
+   "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-alt",
+   "selector": "<img src=\"/card.png\" >",
+   "page": "src/pages/Checkout.tsx:5"
+  },
+  {
+   "id": "label",
+   "impact": "critical",
+   "help": "Form elements must have labels",
+   "description": "Ensure every form element has a label",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label",
+   "selector": "<input type=\"text\" placeholder=\"Card number\" style={{ padding: '10px 14px', border: '2px solid #9ca3af', b>",
+   "page": "src/pages/Checkout.tsx:6"
+  },
+  {
+   "id": "label",
+   "impact": "critical",
+   "help": "Form elements must have labels",
+   "description": "Ensure every form element has a label",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label",
+   "selector": "<input id=\"coupon\" placeholder=\"Coupon\" className=\"px-3 py-2 border border-gray-300 rounded-md text-sm\" >",
+   "page": "src/pages/Checkout.tsx:7"
+  },
+  {
+   "id": "button-name",
+   "impact": "critical",
+   "help": "Buttons must have discernible text",
+   "description": "Ensure buttons have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name",
+   "selector": "<button aria-describedby=\"close-help\" className=\"p-2 rounded-full bg-gray-100\">",
+   "page": "src/pages/Checkout.tsx:10"
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "description": "Ensure every HTML document has a lang attribute",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang",
+   "selector": "<html>",
+   "page": "public/index.html:2"
+  },
+  {
+   "id": "tabindex",
+   "impact": "serious",
+   "help": "Elements should not have tabindex greater than zero",
+   "description": "Ensure tabindex attribute values are not greater than 0",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/tabindex",
+   "selector": "<button class=\"legacy-btn\" tabindex=\"2\">",
+   "page": "public/index.html:12"
+  },
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "description": "Ensure links have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name",
+   "selector": "<a href=\"/help\" class=\"help-link\">",
+   "page": "src/pages/Settings.vue:7"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": "<button> (#ffffff on #0ea5e9, 2.77:1)",
+   "page": "src/components/Button.tsx:18"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": "<p> (#a3a3a3 on #ffffff, 2.52:1)",
+   "page": "src/pages/Checkout.tsx:11"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".save-button (#ffffff on #0ea5e9, 2.77:1)",
+   "page": "src/pages/Settings.vue:14"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".muted-text (#9ca3af on #ffffff, 2.54:1)",
+   "page": "src/styles/global.css:26"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".subscribe-btn (#ffffff on #16a34a, 3.30:1)",
+   "page": "src/styles/marketing.scss:32"
+  },
+  {
+   "id": "focus-visible",
+   "impact": "moderate",
+   "help": "Focus indicator must not be removed",
+   "description": "Removing the outline on focus without a replacement hides keyboard focus (WCAG 2.4.7)",
+   "helpUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html",
+   "selector": "<button className=\"bg-sky-500 text-white px-[18px] py-[9px] rounded-lg text-[15px] focus:outline-none\">",
+   "page": "src/components/Button.tsx:18"
+  },
+  {
+   "id": "focus-visible",
+   "impact": "moderate",
+   "help": "Focus indicator must not be removed",
+   "description": "Removing the outline on focus without a replacement hides keyboard focus (WCAG 2.4.7)",
+   "helpUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html",
+   "selector": ".btn:focus",
+   "page": "src/styles/global.css:23"
+  }
+ ],
+ "tokens": {
+  "css": "/* Generated by UIDrift from the most used values on the scanned site. */\n:root {\n  --color-1: #ffffff;\n  --color-2: #2563eb;\n  --color-3: #111827;\n  --color-4: #3b82f6;\n  --color-5: #d1d5db;\n  --color-6: #0ea5e9;\n  --color-7: #1d4ed8;\n  --color-8: #1f2937;\n  --color-9: #9ca3af;\n  --color-10: #dc2626;\n  --color-11: #e5e7eb;\n  --color-12: #111111;\n  --color-primary: #0ea5e9;\n  --font-family-base: 'inter', system-ui, sans-serif;\n  --font-size-xs: 14px;\n  --font-size-sm: 16px;\n  --font-size-base: 18px;\n  --font-size-lg: 20px;\n  --font-size-xl: 26px;\n  --font-size-2xl: 28px;\n  --font-size-3xl: 30px;\n  --font-size-4xl: 44px;\n  --space-1: 6px;\n  --space-2: 8px;\n  --space-3: 10px;\n  --space-4: 12px;\n  --space-5: 16px;\n  --space-6: 18px;\n  --space-7: 20px;\n  --space-8: 24px;\n  --radius-sm: 2px;\n  --radius-md: 6px;\n  --radius-lg: 8px;\n  --radius-xl: 9999px;\n}\n",
+  "json": {
+   "color": {
+    "1": "#ffffff",
+    "2": "#2563eb",
+    "3": "#111827",
+    "4": "#3b82f6",
+    "5": "#d1d5db",
+    "6": "#0ea5e9",
+    "7": "#1d4ed8",
+    "8": "#1f2937",
+    "9": "#9ca3af",
+    "10": "#dc2626",
+    "11": "#e5e7eb",
+    "12": "#111111",
+    "primary": "#0ea5e9"
+   },
+   "fontFamily": {
+    "base": "'inter', system-ui, sans-serif"
+   },
+   "fontSize": {
+    "xs": "14px",
+    "sm": "16px",
+    "base": "18px",
+    "lg": "20px",
+    "xl": "26px",
+    "2xl": "28px",
+    "3xl": "30px",
+    "4xl": "44px"
+   },
+   "space": {
+    "1": "6px",
+    "2": "8px",
+    "3": "10px",
+    "4": "12px",
+    "5": "16px",
+    "6": "18px",
+    "7": "20px",
+    "8": "24px"
+   },
+   "radius": {
+    "sm": "2px",
+    "md": "6px",
+    "lg": "8px",
+    "xl": "9999px"
+   }
+  }
+ },
+ "components": [
+  {
+   "path": "tokens.css",
+   "content": "/* Generated by UIDrift from the most used values on the scanned site. */\n:root {\n  --color-1: #ffffff;\n  --color-2: #2563eb;\n  --color-3: #111827;\n  --color-4: #3b82f6;\n  --color-5: #d1d5db;\n  --color-6: #0ea5e9;\n  --color-7: #1d4ed8;\n  --color-8: #1f2937;\n  --color-9: #9ca3af;\n  --color-10: #dc2626;\n  --color-11: #e5e7eb;\n  --color-12: #111111;\n  --color-primary: #0ea5e9;\n  --font-family-base: 'inter', system-ui, sans-serif;\n  --font-size-xs: 14px;\n  --font-size-sm: 16px;\n  --font-size-base: 18px;\n  --font-size-lg: 20px;\n  --font-size-xl: 26px;\n  --font-size-2xl: 28px;\n  --font-size-3xl: 30px;\n  --font-size-4xl: 44px;\n  --space-1: 6px;\n  --space-2: 8px;\n  --space-3: 10px;\n  --space-4: 12px;\n  --space-5: 16px;\n  --space-6: 18px;\n  --space-7: 20px;\n  --space-8: 24px;\n  --radius-sm: 2px;\n  --radius-md: 6px;\n  --radius-lg: 8px;\n  --radius-xl: 9999px;\n}\n"
+  },
+  {
+   "path": "components/Button.tsx",
+   "content": "import type { ButtonHTMLAttributes, CSSProperties } from 'react';\n\nexport type ButtonVariant = 'primary' | 'secondary' | 'tertiary';\n\nconst base: CSSProperties = {\n  display: 'inline-flex',\n  alignItems: 'center',\n  justifyContent: 'center',\n  gap: '0.5em',\n  cursor: 'pointer',\n  fontFamily: 'var(--font-family-base, inherit)',\n  lineHeight: 1.2,\n};\n\nconst variants: Record<ButtonVariant, CSSProperties> = {\n  \"primary\": {\n    \"backgroundColor\": \"var(--color-primary)\",\n    \"color\": \"var(--color-1)\",\n    \"fontSize\": \"var(--font-size-sm)\",\n    \"padding\": \"var(--space-3) var(--font-size-base)\",\n    \"borderRadius\": \"var(--space-2)\",\n    \"border\": \"none\"\n  },\n  \"secondary\": {\n    \"backgroundColor\": \"var(--color-2)\",\n    \"color\": \"var(--color-1)\",\n    \"fontSize\": \"var(--font-size-xs)\",\n    \"fontWeight\": \"600\",\n    \"padding\": \"var(--space-3) var(--font-size-lg)\",\n    \"borderRadius\": \"var(--space-1)\",\n    \"border\": \"none\"\n  },\n  \"tertiary\": {\n    \"backgroundColor\": \"#2464ea\",\n    \"color\": \"var(--color-1)\",\n    \"fontWeight\": \"600\",\n    \"padding\": \"var(--space-3) var(--font-size-lg)\",\n    \"borderRadius\": \"var(--space-1)\",\n    \"border\": \"none\"\n  }\n};\n\nexport interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {\n  variant?: ButtonVariant;\n}\n\nexport function Button({ variant = 'primary', style, type = 'button', ...props }: ButtonProps) {\n  return <button type={type} style={{ ...base, ...variants[variant], ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/Input.tsx",
+   "content": "import { forwardRef, type CSSProperties, type InputHTMLAttributes } from 'react';\n\nconst inputStyle: CSSProperties = {\n  \"fontFamily\": \"var(--font-family-base, inherit)\",\n  \"fontSize\": \"var(--font-size-xs)\",\n  \"padding\": \"var(--space-2) var(--space-4)\",\n  \"borderRadius\": \"var(--space-1)\",\n  \"border\": \"1px solid var(--color-5)\"\n};\n\nexport interface InputProps extends InputHTMLAttributes<HTMLInputElement> {\n  label?: string;\n}\n\nexport const Input = forwardRef<HTMLInputElement, InputProps>(function Input(\n  { label, id, style, ...props },\n  ref,\n) {\n  const field = <input ref={ref} id={id} style={{ ...inputStyle, ...style }} {...props} />;\n  if (!label) return field;\n  return (\n    <label htmlFor={id} style={{ display: 'grid', gap: '0.25rem' }}>\n      <span>{label}</span>\n      {field}\n    </label>\n  );\n});\n"
+  },
+  {
+   "path": "components/Card.tsx",
+   "content": "import type { CSSProperties, HTMLAttributes } from 'react';\n\nconst cardStyle: CSSProperties = {\n  \"padding\": \"var(--font-size-lg) var(--font-size-lg)\",\n  \"borderRadius\": \"4px\",\n  \"border\": \"none\",\n  \"boxShadow\": \"0 2px 4px #00000033\"\n};\n\nexport function Card({ style, ...props }: HTMLAttributes<HTMLDivElement>) {\n  return <div style={{ ...cardStyle, ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/Heading.tsx",
+   "content": "import type { CSSProperties, HTMLAttributes } from 'react';\n\ntype Level = 1 | 2 | 3 | 4 | 5 | 6;\n\nconst levels: Record<Level, CSSProperties> = {\n  \"1\": {\n    \"margin\": \"0\",\n    \"color\": \"#0f172a\",\n    \"fontSize\": \"42px\",\n    \"fontWeight\": \"800\",\n    \"border\": \"none\"\n  },\n  \"2\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-12)\",\n    \"fontSize\": \"40px\",\n    \"fontWeight\": \"700\",\n    \"border\": \"none\"\n  },\n  \"3\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-8)\",\n    \"fontSize\": \"var(--font-size-3xl)\",\n    \"fontWeight\": \"700\",\n    \"border\": \"none\"\n  },\n  \"4\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-8)\",\n    \"fontSize\": \"var(--font-size-2xl)\",\n    \"fontWeight\": \"600\",\n    \"border\": \"none\"\n  },\n  \"5\": {\n    \"margin\": \"0\",\n    \"color\": \"#222222\",\n    \"fontSize\": \"var(--font-size-xl)\",\n    \"fontWeight\": \"700\",\n    \"border\": \"none\"\n  },\n  \"6\": {\n    \"margin\": \"0\",\n    \"color\": \"#374151\",\n    \"fontSize\": \"var(--font-size-lg)\",\n    \"fontWeight\": \"600\",\n    \"border\": \"none\"\n  }\n};\n\nexport interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {\n  level?: Level;\n}\n\nexport function Heading({ level = 2, style, ...props }: HeadingProps) {\n  const Tag = `h${level}` as const;\n  return <Tag style={{ fontFamily: 'var(--font-family-base, inherit)', ...levels[level], ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/index.ts",
+   "content": "export * from './Button';\nexport * from './Input';\nexport * from './Card';\nexport * from './Heading';\n"
+  }
+ ],
+ "insights": {
+  "engine": "rules",
+  "summary": "acme-ui scores 56/100 (Drifting). Biggest gaps: buttons (11 → 3), border radii (9 → 4), spacing values (14 → 8). 14 accessibility issues (4 critical).",
+  "recommendations": [
+   {
+    "category": "components",
+    "impact": "high",
+    "title": "Consolidate 11 buttons into 3",
+    "detail": "Keep the 3 most used buttons as your standard (#0ea5e9, radius 8px, padding 10px 18px; #2563eb, radius 6px, padding 10px 20px; #2464ea, radius 6px, padding 10px 20px) and migrate 9 usages from the other 8 variants."
+   },
+   {
+    "category": "radius",
+    "impact": "high",
+    "title": "Standardize border radius (9 values → 4)",
+    "detail": "Keep 6px, 8px, 9999px, 2px; snap 4px → 6px, 12px → 8px, 10px → 8px, 14px → 8px, 20px → 8px."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 2 × “Form elements must have labels”",
+    "detail": "Ensure every form element has a label. Start with src/pages/Checkout.tsx:6, src/pages/Checkout.tsx:7."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 1 × “Images must have alternative text”",
+    "detail": "Ensure <img> elements have alternative text or a role of none or presentation. Start with src/pages/Checkout.tsx:5."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 1 × “Buttons must have discernible text”",
+    "detail": "Ensure buttons have discernible text. Start with src/pages/Checkout.tsx:10."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 5 × “Elements must meet minimum color contrast ratio thresholds”",
+    "detail": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds. Start with src/components/Button.tsx:18, src/pages/Checkout.tsx:11, src/pages/Settings.vue:14 and 2 more."
+   },
+   {
+    "category": "components",
+    "impact": "medium",
+    "title": "Consolidate 3 inputs into 2",
+    "detail": "Keep the 2 most used inputs as your standard (no background, radius 6px, padding 8px 12px; no background, radius 0px, padding 10px 14px) and migrate 1 usage from the other 1 variant."
+   },
+   {
+    "category": "components",
+    "impact": "medium",
+    "title": "Consolidate 7 headings into 6",
+    "detail": "Keep the 6 most used headings as your standard (42px / 800; 26px / 700; 28px / 600; 30px / 700; 20px / 600; 40px / 700) and migrate 1 usage from the other 1 variant."
+   },
+   {
+    "category": "components",
+    "impact": "medium",
+    "title": "Consolidate 5 cards into 3",
+    "detail": "Keep the 3 most used cards as your standard (no background, radius 4px, padding 20px 20px; #ffffff, radius 14px, padding 18px 18px; #ffffff, radius 12px, padding 16px 16px) and migrate 2 usages from the other 2 variants."
+   },
+   {
+    "category": "colors",
+    "impact": "medium",
+    "title": "Merge 5 near-identical colors",
+    "detail": "These shades are indistinguishable (ΔE < 3): #f3f4f6, #f8fafc, #f9fafb → #ffffff; #2464ea → #2563eb; #0f172a → #111827."
+   }
+  ],
+  "tokenNames": [
+   {
+    "value": "#0ea5e9",
+    "name": "primary",
+    "reason": "Background of the most used button"
+   },
+   {
+    "value": "#ffffff",
+    "name": "background",
+    "reason": "Lightest neutral"
+   },
+   {
+    "value": "#2563eb",
+    "name": "info",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#111827",
+    "name": "info-2",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#3b82f6",
+    "name": "info-3",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#d1d5db",
+    "name": "border",
+    "reason": "Light neutral, typical for dividers"
+   },
+   {
+    "value": "#1d4ed8",
+    "name": "info-4",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#1f2937",
+    "name": "info-5",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#9ca3af",
+    "name": "text-muted",
+    "reason": "Mid neutral for secondary text"
+   },
+   {
+    "value": "#dc2626",
+    "name": "danger",
+    "reason": "Red hue"
+   },
+   {
+    "value": "#e5e7eb",
+    "name": "border-2",
+    "reason": "Light neutral, typical for dividers"
+   },
+   {
+    "value": "#111111",
+    "name": "text",
+    "reason": "Dark neutral for body text"
+   }
+  ]
+ },
+ "kind": "source",
+ "source": {
+  "filesReceived": 10,
+  "filesAnalyzed": 8,
+  "styleBlocks": 50,
+  "frameworks": [
+   "CSS-in-JS",
+   "React",
+   "Sass",
+   "Tailwind CSS",
+   "Vue"
+  ],
+  "languages": {
+   "html": 1,
+   "tsx": 3,
+   "vue": 1,
+   "scss": 2,
+   "css": 1
+  }
+ },
+ "url": "acme-ui.zip",
+ "domain": "acme-ui",
+ "pagesScanned": [
+  "public/index.html",
+  "src/components/Button.tsx",
+  "src/components/PromoBanner.tsx",
+  "src/pages/Checkout.tsx",
+  "src/pages/Settings.vue",
+  "src/styles/global.css",
+  "src/styles/marketing.scss"
+ ]
+}

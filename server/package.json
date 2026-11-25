@@ -13,10 +13,14 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "seed:demos": "tsx src/scripts/seed-demos.ts",
-    "prebuild": "npm run build --prefix ../shared"
+    "prebuild": "npm run build --prefix ../shared",
+    "seed": "tsx src/scripts/seed.ts",
+    "analyze": "tsx src/cli/analyze-source.ts",
+    "seed:prod": "node dist/scripts/seed.js",
+    "demo:fixtures": "tsx src/scripts/make-demo-fixtures.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
     "@axe-core/puppeteer": "^4.10.1",
     "@uidrift/shared": "1.0.0",
     "bcryptjs": "^2.4.3",
@@ -30,6 +34,7 @@
     "helmet": "^8.0.0",
     "ioredis": "^5.4.2",
     "jsonwebtoken": "^9.0.2",
+    "jszip": "^3.10.2",
     "mongoose": "^8.9.3",
     "pino": "^9.6.0",
     "pino-http": "^10.3.0",

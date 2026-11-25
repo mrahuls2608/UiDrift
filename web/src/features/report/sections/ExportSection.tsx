@@ -46,7 +46,7 @@ export default function ExportSection({ report }: { report: ReportDTO }) {
 
   return (
     <Section
-      eyebrow="08 · Export"
+      eyebrow="09 · Export"
       id="export"
       title="Export"
       description="Design tokens and starter React components generated from the most used values and variants."

@@ -44,6 +44,14 @@ export function useCreateScan() {
   });
 }
 
+export function useCreateSourceScan() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: api.createSourceScan,
+    onSuccess: () => qc.invalidateQueries({ queryKey: keys.myScans }),
+  });
+}
+
 export function useCancelScan() {
   const qc = useQueryClient();
   return useMutation({

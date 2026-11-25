@@ -143,13 +143,14 @@ Base URL: `/api/v1`
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
-| POST | `/scans` | optional | Start scan `{ url, maxPages }` → `{ scanId }` |
-| GET | `/scans/:id` | — | Scan status |
-| GET | `/scans/:id/events` | — | Server-Sent Events progress stream |
+| POST | `/scans` | required | Website audit `{ url, maxPages, llm? }` → `{ scanId }` |
+| GET | `/scans/:id` | required | Scan status |
+| GET | `/scans/:id/events` | required | Server-Sent Events progress stream |
 | DELETE | `/scans/:id` | owner | Cancel / delete |
-| GET | `/reports/:scanId` | — | Full report |
-| GET | `/reports/:scanId/export?format=css\|json\|react` | — | Export file |
-| GET | `/demos` | — | List demo reports |
+| GET | `/reports/:scanId` | required | Full report |
+| GET | `/reports/:scanId/export?format=css\|json\|react` | required | Export file |
+| GET | `/demos` | required | List demo reports |
+| POST | `/scans/source` | required | Source-code audit `{ source, llm? }` (8 MB body limit, auth checked first) |
 | GET | `/me` | optional | Current user or `null` |
 | GET | `/me/scans` | required | User's scans |
 | POST | `/auth/signup` | — | Create account |
@@ -261,3 +262,33 @@ NEXT_PUBLIC_SSE_URL=                          # optional direct SSE base
 - **DB:** MongoDB Atlas M0, allow access from `0.0.0.0/0` with strong user password
 - **CI:** GitHub Actions runs lint + tests on every PR
 - **No credit card** added anywhere
+
+
+## 13. Access control
+- Public: landing page, `/health`, `/auth/*`. Everything else requires the `uidrift_token` JWT cookie (`requireAuth`).
+- Visibility: an audit and its report are visible to their owner; demo audits (`isDemo`) to every signed-in user.
+- Web: `web/src/proxy.ts` (Next.js 16 proxy) redirects signed-out visitors from `/dashboard`, `/new`, `/scan/*`, `/report/*` to `/login?next=…` and signed-in users away from the auth pages. The API remains the enforcement point; the client also redirects to login on any 401.
+
+## 14. Source-code audits
+Pipeline (`server/src/services/source/`):
+1. **Ingest** — `files` (from the browser: ZIP/folder read with JSZip, or pasted) or `github` (worker downloads `https://codeload.github.com/{owner}/{repo}/zip/{ref|HEAD}` and unzips with zip-bomb guards). `filterSourceFiles` keeps allow-listed extensions, drops `node_modules`/build output/minified files/`..` paths, caps 400 KB per file, 6 MB total, 2,000 files. Uploaded files wait in Redis (`uidrift:source-files:<id>`, 1 h TTL) and are deleted when read.
+2. **Extract** — pass 1 collects SCSS/LESS variables and CSS custom properties across all files; pass 2 parses CSS/SCSS/LESS (nesting, `&`, media queries; keyframes/font-face skipped), `<style>` blocks, CSS-in-JS template literals, and markup tags (class/className incl. `clsx()` strings → Tailwind mapping; React/HTML inline styles).
+3. **Classify** — selectors by last compound (`.cta-button` → button, `.pricing-card` → card), tags and component names (`<IconButton>` → button). `:hover`/`:focus`/… blocks count for tokens but not as variants.
+4. **Expand** — shorthands and units become computed-style keys (`padding: 8px 1rem` → `paddingTop…`, `border` → `borderTop*`, rem/em/pt → px). Unresolvable values (`calc()`, unknown vars) are dropped, never guessed.
+5. **Analyse** — component blocks become `RawElement`s with `page = file:line`; other blocks feed token distributions. From here the website pipeline is reused unchanged.
+6. **Static a11y** — `image-alt`, `label`, `button-name`, `link-name`, `tabindex`, `html-has-lang`, `color-contrast` (WCAG ratio from authored fg/bg), `focus-visible` (outline removed without replacement).
+
+The analysis is deterministic (files are sorted; tests assert identical output for shuffled input).
+
+## 15. Insights engine and optional LLM
+- `services/insights/rules.ts` always computes: summary, ≤ 10 recommendations (component consolidation, ΔE merges, palette trim with nearest-color mapping, type-scale snapping, 4 px grid, radius standardisation, grouped a11y fixes), semantic token names (role/hue/lightness).
+- If the audit carries an LLM config, `llm.ts` sends a digest (scores, groups, distributions, a11y, rule-based insights — **no source code**) and asks for the same JSON shape:
+  - Anthropic: `@anthropic-ai/sdk`, `client.beta.messages.parse` with `zodOutputFormat`, default model `claude-opus-5-5`, `betas: ['server-side-fallback-2026-07-01']` + `fallbacks: 'default'` on models that support it, refusal / max-tokens handling, typed SDK errors.
+  - OpenAI: `chat/completions` with strict `json_schema` (generated from the same zod schema). OpenAI-compatible: `json_object` + schema in the prompt; base URL must pass the SSRF guard and use https.
+  - Output is validated with zod; token names are kept only for colors present in the audit. Any failure → rule-based insights + `fallbackReason`.
+- **Key handling:** the key comes only from the request body (UI) or CLI flags/prompt — never from environment variables. `key-vault.ts` stores it AES-256-GCM encrypted (key derived from `JWT_SECRET`) at `uidrift:llm-key:<scanId>` with a 15-minute TTL; the worker reads it with `GETDEL`; failed audits delete it too. Logs redact `apiKey`.
+
+## 16. Seed, demo runner and CLI
+- `npm run seed` (`server/src/scripts/seed.ts`): demo users (`demo@`, `designer@`, `manager@uidrift.dev`), their audit history and two demo reports, from `server/seed/acme-website.json` (recorded crawl) and `samples/acme-ui` (analysed live). Idempotent; refuses `NODE_ENV=production` without `--force`; `--password` overrides passwords.
+- `scripts/run-demo.sh local | docker | seed | seed-prod | stop`.
+- `npm run analyze -- <folder> [--out] [--llm --model --base-url --api-key]` (`server/src/cli/analyze-source.ts`) writes `report.json`, `insights.md`, `tokens.css/json`, `components/`.

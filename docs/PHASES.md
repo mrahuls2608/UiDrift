@@ -99,3 +99,13 @@ Finish each phase's checklist before moving to the next.
 - Compare two scans side by side
 - Figma tokens export format
 - GitHub Action that fails a PR when the consistency score drops
+
+---
+
+## Phase 7 — Source audits, optional AI, login-only (done)
+- [x] Login required for every audit, report, export and history view (API + Next.js proxy)
+- [x] Deterministic source-code analyzer (CSS/SCSS/LESS, Tailwind, CSS-in-JS, JSX/HTML/Vue/Svelte) with static a11y checks
+- [x] ZIP / folder / GitHub / paste input with size and safety limits
+- [x] Rule-based insights for every report; optional user-supplied LLM (Anthropic, OpenAI, compatible) that never changes scores
+- [x] CLI (`npm run analyze`), seed script with demo users, `scripts/run-demo.sh` for local, Docker and production demos
+- [x] Landing page redesigned from the brand reference; demo video re-recorded

@@ -1,6 +1,7 @@
 import type {
   ApiError as ApiErrorBody,
   CreateScanInput,
+  CreateSourceScanInput,
   CredentialsInput,
   DemoDTO,
   ExportFormat,
@@ -35,7 +36,23 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     throw new ApiError(0, 'NETWORK', 'Could not reach the server. Check your connection.');
   }
   const text = await res.text();
-  const data = text ? (JSON.parse(text) as unknown) : null;
+  let data: unknown = null;
+  try {
+    data = text ? (JSON.parse(text) as unknown) : null;
+  } catch {
+    data = null;
+  }
+  // An expired session on an app page: send the user to log in and come back afterwards.
+  if (
+    res.status === 401 &&
+    typeof window !== 'undefined' &&
+    !path.startsWith('/auth/') &&
+    path !== '/me'
+  ) {
+    const next = `${window.location.pathname}${window.location.search}`;
+    if (!window.location.pathname.startsWith('/login'))
+      window.location.assign(`/login?next=${encodeURIComponent(next)}`);
+  }
   if (!res.ok) {
     const body = data as Partial<ApiErrorBody> | null;
     throw new ApiError(
@@ -51,6 +68,11 @@ export const api = {
   health: () => request<{ status: string }>('/health'),
   createScan: (input: Partial<CreateScanInput> & { url: string }) =>
     request<{ scanId: string; scan: ScanDTO }>('/scans', {
+      method: 'POST',
+      body: JSON.stringify(input),
+    }),
+  createSourceScan: (input: CreateSourceScanInput) =>
+    request<{ scanId: string; scan: ScanDTO }>('/scans/source', {
       method: 'POST',
       body: JSON.stringify(input),
     }),

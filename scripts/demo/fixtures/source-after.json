@@ -1,0 +1,1188 @@
+{
+ "score": {
+  "overall": 74,
+  "components": 87,
+  "colors": 71,
+  "typography": 100,
+  "spacing": 67,
+  "radius": 50,
+  "a11yPenalty": 6
+ },
+ "summary": {
+  "components": [
+   {
+    "type": "button",
+    "variants": 9,
+    "ideal": 3
+   },
+   {
+    "type": "input",
+    "variants": 2,
+    "ideal": 2
+   },
+   {
+    "type": "heading",
+    "variants": 6,
+    "ideal": 6
+   },
+   {
+    "type": "link",
+    "variants": 3,
+    "ideal": 3
+   },
+   {
+    "type": "card",
+    "variants": 3,
+    "ideal": 3
+   }
+  ],
+  "colors": {
+   "actual": 17,
+   "ideal": 12
+  },
+  "fontSizes": {
+   "actual": 8,
+   "ideal": 8
+  },
+  "spacing": {
+   "actual": 12,
+   "ideal": 8
+  },
+  "radius": {
+   "actual": 8,
+   "ideal": 4
+  },
+  "a11yIssues": 7
+ },
+ "componentGroups": [
+  {
+   "type": "button",
+   "fingerprint": "bg=#0ea5e9|color=#ffffff|fontSize=16px|fontWeight=400|paddingY=10px|paddingX=18px|radius=8px|border=none|shadow=none",
+   "styles": {
+    "bg": "#0ea5e9",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "18px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/components/Button.tsx:18",
+    "src/pages/Settings.vue:14"
+   ],
+   "sampleText": "Choose Pro",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#2563eb|color=#ffffff|fontSize=14px|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "#2563eb",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/Button.tsx:16"
+   ],
+   "sampleText": "Save",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#7c3aed|color=#ffffff|fontSize=18px|fontWeight=700|paddingY=14px|paddingX=32px|radius=12px|border=none|shadow=0 10px 16px -2px #0000001a, 0 4px 6px -4px #0000001a",
+   "styles": {
+    "bg": "#7c3aed",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "18px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "14px",
+    "paddingX": "32px",
+    "radius": "12px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "0 10px 16px -2px #0000001a, 0 4px 6px -4px #0000001a",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/Button.tsx:17"
+   ],
+   "sampleText": "Book a demo",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=transparent|color=inherit|fontSize=14px|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:18"
+   ],
+   "sampleText": ".btn",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#2563eb|color=#ffffff|fontSize=inherit|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "#2563eb",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:19"
+   ],
+   "sampleText": ".btn-primary",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#ffffff|color=#2563eb|fontSize=inherit|fontWeight=400|paddingY=8px|paddingX=16px|radius=9999px|border=1px solid #2563eb|shadow=none",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "#2563eb",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "16px",
+    "radius": "9999px",
+    "border": "1px solid #2563eb",
+    "borderColor": "#2563eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:20"
+   ],
+   "sampleText": ".btn-secondary",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#dc2626|color=#ffffff|fontSize=inherit|fontWeight=400|paddingY=10px|paddingX=18px|radius=2px|border=none|shadow=none",
+   "styles": {
+    "bg": "#dc2626",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "18px",
+    "radius": "2px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:21"
+   ],
+   "sampleText": ".btn-danger",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#1d4ed8|color=#ffffff|fontSize=16px|fontWeight=700|paddingY=12px|paddingX=28px|radius=10px|border=none|shadow=none",
+   "styles": {
+    "bg": "#1d4ed8",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "12px",
+    "paddingX": "28px",
+    "radius": "10px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:7"
+   ],
+   "sampleText": ".hero .cta-button",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#16a34a|color=#ffffff|fontSize=14px|fontWeight=400|paddingY=6px|paddingX=12px|radius=4px|border=none|shadow=none",
+   "styles": {
+    "bg": "#16a34a",
+    "color": "#ffffff",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "6px",
+    "paddingX": "12px",
+    "radius": "4px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:32"
+   ],
+   "sampleText": ".subscribe-btn",
+   "suggested": false
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=transparent|color=inherit|fontSize=14px|paddingY=8px|paddingX=12px|radius=6px|border=1px solid #d1d5db|shadow=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "12px",
+    "radius": "6px",
+    "border": "1px solid #d1d5db",
+    "borderColor": "#d1d5db",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/styles/global.css:28"
+   ],
+   "sampleText": "input",
+   "suggested": true
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=#f8fafc|color=inherit|fontSize=inherit|paddingY=10px|paddingX=12px|radius=9999px|border=1px solid #cbd5e1|shadow=none",
+   "styles": {
+    "bg": "#f8fafc",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "12px",
+    "radius": "9999px",
+    "border": "1px solid #cbd5e1",
+    "borderColor": "#cbd5e1",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Settings.vue:13"
+   ],
+   "sampleText": ".field",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=28px|fontWeight=600|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inherit",
+    "fontSize": "28px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/pages/Settings.vue:12"
+   ],
+   "sampleText": ".settings-title",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=44px|fontWeight=800|color=#111827",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111827",
+    "fontFamily": "inherit",
+    "fontSize": "44px",
+    "fontWeight": "800",
+    "lineHeight": "2px",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:13"
+   ],
+   "sampleText": "h1",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=30px|fontWeight=700|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inherit",
+    "fontSize": "30px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:14"
+   ],
+   "sampleText": "h2",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=20px|fontWeight=600|color=#374151",
+   "styles": {
+    "bg": "transparent",
+    "color": "#374151",
+    "fontFamily": "inherit",
+    "fontSize": "20px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:15"
+   ],
+   "sampleText": "h3",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=40px|fontWeight=700|color=#111111",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111111",
+    "fontFamily": "inherit",
+    "fontSize": "40px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:16"
+   ],
+   "sampleText": ".page-title",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inherit|fontSize=44px|fontWeight=400|color=#111827",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111827",
+    "fontFamily": "inherit",
+    "fontSize": "44px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:6"
+   ],
+   "sampleText": ".hero h1",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#3b82f6|fontSize=14px|fontWeight=400|textDecoration=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "#3b82f6",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "src/pages/Settings.vue:15",
+    "src/styles/global.css:11"
+   ],
+   "sampleText": ".help-link",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#3b82f6|fontSize=14px|fontWeight=400|textDecoration=underline",
+   "styles": {
+    "bg": "transparent",
+    "color": "#3b82f6",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "underline",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/components/Button.tsx:19"
+   ],
+   "sampleText": "See pricing",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#2563eb|fontSize=14px|fontWeight=400|textDecoration=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "#2563eb",
+    "fontFamily": "inherit",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:10"
+   ],
+   "sampleText": "a",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#ffffff|radius=12px|border=1px solid #e5e7eb|shadow=none|paddingY=16px|paddingX=16px",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "16px",
+    "paddingX": "16px",
+    "radius": "12px",
+    "border": "1px solid #e5e7eb",
+    "borderColor": "#e5e7eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/global.css:25"
+   ],
+   "sampleText": ".card",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#f9fafb|radius=8px|border=none|shadow=0 2px 8px #00000026|paddingY=24px|paddingX=24px",
+   "styles": {
+    "bg": "#f9fafb",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "24px",
+    "paddingX": "24px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "transparent",
+    "shadow": "0 2px 8px #00000026",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:18"
+   ],
+   "sampleText": ".pricing-card",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=transparent|radius=20px|border=2px solid #dbeafe|shadow=none|paddingY=20px|paddingX=20px",
+   "styles": {
+    "bg": "transparent",
+    "color": "inherit",
+    "fontFamily": "inherit",
+    "fontSize": "inherit",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "20px",
+    "paddingX": "20px",
+    "radius": "20px",
+    "border": "2px solid #dbeafe",
+    "borderColor": "#dbeafe",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "src/styles/marketing.scss:26"
+   ],
+   "sampleText": ".feature-card",
+   "suggested": true
+  }
+ ],
+ "colors": [
+  {
+   "hex": "#ffffff",
+   "merged": [
+    "#ffffff",
+    "#f8fafc",
+    "#f9fafb"
+   ],
+   "count": 13
+  },
+  {
+   "hex": "#2563eb",
+   "merged": [
+    "#2563eb"
+   ],
+   "count": 6
+  },
+  {
+   "hex": "#111827",
+   "merged": [
+    "#111827"
+   ],
+   "count": 3
+  },
+  {
+   "hex": "#3b82f6",
+   "merged": [
+    "#3b82f6"
+   ],
+   "count": 3
+  },
+  {
+   "hex": "#0ea5e9",
+   "merged": [
+    "#0ea5e9"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#1d4ed8",
+   "merged": [
+    "#1d4ed8"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#1f2937",
+   "merged": [
+    "#1f2937"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#d1d5db",
+   "merged": [
+    "#d1d5db"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#111111",
+   "merged": [
+    "#111111"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#16a34a",
+   "merged": [
+    "#16a34a"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#374151",
+   "merged": [
+    "#374151"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#7c3aed",
+   "merged": [
+    "#7c3aed"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#9ca3af",
+   "merged": [
+    "#9ca3af"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#cbd5e1",
+   "merged": [
+    "#cbd5e1"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#dbeafe",
+   "merged": [
+    "#dbeafe"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#dc2626",
+   "merged": [
+    "#dc2626"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#e5e7eb",
+   "merged": [
+    "#e5e7eb"
+   ],
+   "count": 1
+  }
+ ],
+ "fontSizes": [
+  {
+   "value": "14px",
+   "count": 9
+  },
+  {
+   "value": "16px",
+   "count": 4
+  },
+  {
+   "value": "18px",
+   "count": 2
+  },
+  {
+   "value": "44px",
+   "count": 2
+  },
+  {
+   "value": "20px",
+   "count": 1
+  },
+  {
+   "value": "28px",
+   "count": 1
+  },
+  {
+   "value": "30px",
+   "count": 1
+  },
+  {
+   "value": "40px",
+   "count": 1
+  }
+ ],
+ "fontFamilies": [
+  {
+   "value": "inter",
+   "count": 1
+  }
+ ],
+ "spacing": [
+  {
+   "value": "10px",
+   "count": 16
+  },
+  {
+   "value": "16px",
+   "count": 12
+  },
+  {
+   "value": "12px",
+   "count": 10
+  },
+  {
+   "value": "20px",
+   "count": 10
+  },
+  {
+   "value": "8px",
+   "count": 6
+  },
+  {
+   "value": "18px",
+   "count": 6
+  },
+  {
+   "value": "24px",
+   "count": 6
+  },
+  {
+   "value": "6px",
+   "count": 4
+  },
+  {
+   "value": "32px",
+   "count": 4
+  },
+  {
+   "value": "14px",
+   "count": 2
+  },
+  {
+   "value": "28px",
+   "count": 2
+  },
+  {
+   "value": "48px",
+   "count": 2
+  }
+ ],
+ "radius": [
+  {
+   "value": "6px",
+   "count": 5
+  },
+  {
+   "value": "8px",
+   "count": 3
+  },
+  {
+   "value": "12px",
+   "count": 2
+  },
+  {
+   "value": "9999px",
+   "count": 2
+  },
+  {
+   "value": "2px",
+   "count": 1
+  },
+  {
+   "value": "4px",
+   "count": 1
+  },
+  {
+   "value": "10px",
+   "count": 1
+  },
+  {
+   "value": "20px",
+   "count": 1
+  }
+ ],
+ "a11y": [
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "description": "Ensure links have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name",
+   "selector": "<a href=\"/help\" class=\"help-link\">",
+   "page": "src/pages/Settings.vue:7"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": "<button> (#ffffff on #0ea5e9, 2.77:1)",
+   "page": "src/components/Button.tsx:18"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".save-button (#ffffff on #0ea5e9, 2.77:1)",
+   "page": "src/pages/Settings.vue:14"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".muted-text (#9ca3af on #ffffff, 2.54:1)",
+   "page": "src/styles/global.css:26"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+   "selector": ".subscribe-btn (#ffffff on #16a34a, 3.30:1)",
+   "page": "src/styles/marketing.scss:32"
+  },
+  {
+   "id": "focus-visible",
+   "impact": "moderate",
+   "help": "Focus indicator must not be removed",
+   "description": "Removing the outline on focus without a replacement hides keyboard focus (WCAG 2.4.7)",
+   "helpUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html",
+   "selector": "<button className=\"bg-sky-500 text-white px-[18px] py-[9px] rounded-lg text-[15px] focus:outline-none\">",
+   "page": "src/components/Button.tsx:18"
+  },
+  {
+   "id": "focus-visible",
+   "impact": "moderate",
+   "help": "Focus indicator must not be removed",
+   "description": "Removing the outline on focus without a replacement hides keyboard focus (WCAG 2.4.7)",
+   "helpUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html",
+   "selector": ".btn:focus",
+   "page": "src/styles/global.css:23"
+  }
+ ],
+ "tokens": {
+  "css": "/* Generated by UIDrift from the most used values on the scanned site. */\n:root {\n  --color-1: #ffffff;\n  --color-2: #2563eb;\n  --color-3: #111827;\n  --color-4: #3b82f6;\n  --color-5: #0ea5e9;\n  --color-6: #1d4ed8;\n  --color-7: #1f2937;\n  --color-8: #d1d5db;\n  --color-9: #111111;\n  --color-10: #16a34a;\n  --color-11: #374151;\n  --color-12: #7c3aed;\n  --color-primary: #0ea5e9;\n  --font-family-base: 'inter', system-ui, sans-serif;\n  --font-size-xs: 14px;\n  --font-size-sm: 16px;\n  --font-size-base: 18px;\n  --font-size-lg: 20px;\n  --font-size-xl: 28px;\n  --font-size-2xl: 30px;\n  --font-size-3xl: 40px;\n  --font-size-4xl: 44px;\n  --space-1: 6px;\n  --space-2: 8px;\n  --space-3: 10px;\n  --space-4: 12px;\n  --space-5: 16px;\n  --space-6: 18px;\n  --space-7: 20px;\n  --space-8: 24px;\n  --radius-sm: 6px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-xl: 9999px;\n}\n",
+  "json": {
+   "color": {
+    "1": "#ffffff",
+    "2": "#2563eb",
+    "3": "#111827",
+    "4": "#3b82f6",
+    "5": "#0ea5e9",
+    "6": "#1d4ed8",
+    "7": "#1f2937",
+    "8": "#d1d5db",
+    "9": "#111111",
+    "10": "#16a34a",
+    "11": "#374151",
+    "12": "#7c3aed",
+    "primary": "#0ea5e9"
+   },
+   "fontFamily": {
+    "base": "'inter', system-ui, sans-serif"
+   },
+   "fontSize": {
+    "xs": "14px",
+    "sm": "16px",
+    "base": "18px",
+    "lg": "20px",
+    "xl": "28px",
+    "2xl": "30px",
+    "3xl": "40px",
+    "4xl": "44px"
+   },
+   "space": {
+    "1": "6px",
+    "2": "8px",
+    "3": "10px",
+    "4": "12px",
+    "5": "16px",
+    "6": "18px",
+    "7": "20px",
+    "8": "24px"
+   },
+   "radius": {
+    "sm": "6px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "9999px"
+   }
+  }
+ },
+ "components": [
+  {
+   "path": "tokens.css",
+   "content": "/* Generated by UIDrift from the most used values on the scanned site. */\n:root {\n  --color-1: #ffffff;\n  --color-2: #2563eb;\n  --color-3: #111827;\n  --color-4: #3b82f6;\n  --color-5: #0ea5e9;\n  --color-6: #1d4ed8;\n  --color-7: #1f2937;\n  --color-8: #d1d5db;\n  --color-9: #111111;\n  --color-10: #16a34a;\n  --color-11: #374151;\n  --color-12: #7c3aed;\n  --color-primary: #0ea5e9;\n  --font-family-base: 'inter', system-ui, sans-serif;\n  --font-size-xs: 14px;\n  --font-size-sm: 16px;\n  --font-size-base: 18px;\n  --font-size-lg: 20px;\n  --font-size-xl: 28px;\n  --font-size-2xl: 30px;\n  --font-size-3xl: 40px;\n  --font-size-4xl: 44px;\n  --space-1: 6px;\n  --space-2: 8px;\n  --space-3: 10px;\n  --space-4: 12px;\n  --space-5: 16px;\n  --space-6: 18px;\n  --space-7: 20px;\n  --space-8: 24px;\n  --radius-sm: 6px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-xl: 9999px;\n}\n"
+  },
+  {
+   "path": "components/Button.tsx",
+   "content": "import type { ButtonHTMLAttributes, CSSProperties } from 'react';\n\nexport type ButtonVariant = 'primary' | 'secondary' | 'tertiary';\n\nconst base: CSSProperties = {\n  display: 'inline-flex',\n  alignItems: 'center',\n  justifyContent: 'center',\n  gap: '0.5em',\n  cursor: 'pointer',\n  fontFamily: 'var(--font-family-base, inherit)',\n  lineHeight: 1.2,\n};\n\nconst variants: Record<ButtonVariant, CSSProperties> = {\n  \"primary\": {\n    \"backgroundColor\": \"var(--color-primary)\",\n    \"color\": \"var(--color-1)\",\n    \"fontSize\": \"var(--font-size-sm)\",\n    \"padding\": \"var(--space-3) var(--font-size-base)\",\n    \"borderRadius\": \"var(--space-2)\",\n    \"border\": \"none\"\n  },\n  \"secondary\": {\n    \"backgroundColor\": \"var(--color-2)\",\n    \"color\": \"var(--color-1)\",\n    \"fontSize\": \"var(--font-size-xs)\",\n    \"fontWeight\": \"600\",\n    \"padding\": \"var(--space-3) var(--font-size-lg)\",\n    \"borderRadius\": \"var(--space-1)\",\n    \"border\": \"none\"\n  },\n  \"tertiary\": {\n    \"backgroundColor\": \"var(--color-12)\",\n    \"color\": \"var(--color-1)\",\n    \"fontSize\": \"var(--font-size-base)\",\n    \"fontWeight\": \"700\",\n    \"padding\": \"var(--font-size-xs) 32px\",\n    \"borderRadius\": \"var(--space-4)\",\n    \"border\": \"none\",\n    \"boxShadow\": \"0 10px 16px -2px #0000001a, 0 4px 6px -4px #0000001a\"\n  }\n};\n\nexport interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {\n  variant?: ButtonVariant;\n}\n\nexport function Button({ variant = 'primary', style, type = 'button', ...props }: ButtonProps) {\n  return <button type={type} style={{ ...base, ...variants[variant], ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/Input.tsx",
+   "content": "import { forwardRef, type CSSProperties, type InputHTMLAttributes } from 'react';\n\nconst inputStyle: CSSProperties = {\n  \"fontFamily\": \"var(--font-family-base, inherit)\",\n  \"fontSize\": \"var(--font-size-xs)\",\n  \"padding\": \"var(--space-2) var(--space-4)\",\n  \"borderRadius\": \"var(--space-1)\",\n  \"border\": \"1px solid var(--color-8)\"\n};\n\nexport interface InputProps extends InputHTMLAttributes<HTMLInputElement> {\n  label?: string;\n}\n\nexport const Input = forwardRef<HTMLInputElement, InputProps>(function Input(\n  { label, id, style, ...props },\n  ref,\n) {\n  const field = <input ref={ref} id={id} style={{ ...inputStyle, ...style }} {...props} />;\n  if (!label) return field;\n  return (\n    <label htmlFor={id} style={{ display: 'grid', gap: '0.25rem' }}>\n      <span>{label}</span>\n      {field}\n    </label>\n  );\n});\n"
+  },
+  {
+   "path": "components/Card.tsx",
+   "content": "import type { CSSProperties, HTMLAttributes } from 'react';\n\nconst cardStyle: CSSProperties = {\n  \"backgroundColor\": \"var(--color-1)\",\n  \"padding\": \"var(--font-size-sm) var(--font-size-sm)\",\n  \"borderRadius\": \"var(--space-4)\",\n  \"border\": \"1px solid #e5e7eb\"\n};\n\nexport function Card({ style, ...props }: HTMLAttributes<HTMLDivElement>) {\n  return <div style={{ ...cardStyle, ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/Heading.tsx",
+   "content": "import type { CSSProperties, HTMLAttributes } from 'react';\n\ntype Level = 1 | 2 | 3 | 4 | 5 | 6;\n\nconst levels: Record<Level, CSSProperties> = {\n  \"1\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-3)\",\n    \"fontSize\": \"var(--font-size-4xl)\",\n    \"fontWeight\": \"800\",\n    \"border\": \"none\"\n  },\n  \"2\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-3)\",\n    \"fontSize\": \"var(--font-size-4xl)\",\n    \"border\": \"none\"\n  },\n  \"3\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-9)\",\n    \"fontSize\": \"var(--font-size-3xl)\",\n    \"fontWeight\": \"700\",\n    \"border\": \"none\"\n  },\n  \"4\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-7)\",\n    \"fontSize\": \"var(--font-size-2xl)\",\n    \"fontWeight\": \"700\",\n    \"border\": \"none\"\n  },\n  \"5\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-7)\",\n    \"fontSize\": \"var(--font-size-xl)\",\n    \"fontWeight\": \"600\",\n    \"border\": \"none\"\n  },\n  \"6\": {\n    \"margin\": \"0\",\n    \"color\": \"var(--color-11)\",\n    \"fontSize\": \"var(--font-size-lg)\",\n    \"fontWeight\": \"600\",\n    \"border\": \"none\"\n  }\n};\n\nexport interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {\n  level?: Level;\n}\n\nexport function Heading({ level = 2, style, ...props }: HeadingProps) {\n  const Tag = `h${level}` as const;\n  return <Tag style={{ fontFamily: 'var(--font-family-base, inherit)', ...levels[level], ...style }} {...props} />;\n}\n"
+  },
+  {
+   "path": "components/index.ts",
+   "content": "export * from './Button';\nexport * from './Input';\nexport * from './Card';\nexport * from './Heading';\n"
+  }
+ ],
+ "insights": {
+  "engine": "rules",
+  "summary": "acme-ui scores 74/100 (Drifting). Biggest gaps: buttons (9 → 3), border radii (8 → 4), spacing values (12 → 8). 7 accessibility issues.",
+  "recommendations": [
+   {
+    "category": "components",
+    "impact": "high",
+    "title": "Consolidate 9 buttons into 3",
+    "detail": "Keep the 3 most used buttons as your standard (#0ea5e9, radius 8px, padding 10px 18px; #2563eb, radius 6px, padding 10px 20px; #7c3aed, radius 12px, padding 14px 32px) and migrate 6 usages from the other 6 variants."
+   },
+   {
+    "category": "radius",
+    "impact": "high",
+    "title": "Standardize border radius (8 values → 4)",
+    "detail": "Keep 6px, 8px, 12px, 9999px; snap 2px → 6px, 4px → 6px, 10px → 8px, 20px → 12px."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 4 × “Elements must meet minimum color contrast ratio thresholds”",
+    "detail": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds. Start with src/components/Button.tsx:18, src/pages/Settings.vue:14, src/styles/global.css:26 and 1 more."
+   },
+   {
+    "category": "accessibility",
+    "impact": "high",
+    "title": "Fix 1 × “Links must have discernible text”",
+    "detail": "Ensure links have discernible text. Start with src/pages/Settings.vue:7."
+   },
+   {
+    "category": "colors",
+    "impact": "medium",
+    "title": "Merge 2 near-identical colors",
+    "detail": "These shades are indistinguishable (ΔE < 3): #f8fafc, #f9fafb → #ffffff."
+   },
+   {
+    "category": "colors",
+    "impact": "medium",
+    "title": "Trim the palette from 17 to 12 colors",
+    "detail": "Replace the least used colors with their closest kept color: #9ca3af → #d1d5db, #cbd5e1 → #d1d5db, #dbeafe → #d1d5db, #dc2626 → #374151, #e5e7eb → #d1d5db."
+   },
+   {
+    "category": "spacing",
+    "impact": "medium",
+    "title": "Move spacing onto a 4 px grid (12 values → 8)",
+    "detail": "Off-grid values: 10px → 12px, 18px → 20px, 6px → 8px, 14px → 16px. Then keep 10px, 16px, 12px, 20px, 8px, 18px, 24px, 6px as your spacing scale."
+   },
+   {
+    "category": "accessibility",
+    "impact": "medium",
+    "title": "Fix 2 × “Focus indicator must not be removed”",
+    "detail": "Removing the outline on focus without a replacement hides keyboard focus (WCAG 2.4.7). Start with src/components/Button.tsx:18, src/styles/global.css:23."
+   }
+  ],
+  "tokenNames": [
+   {
+    "value": "#0ea5e9",
+    "name": "primary",
+    "reason": "Background of the most used button"
+   },
+   {
+    "value": "#ffffff",
+    "name": "background",
+    "reason": "Lightest neutral"
+   },
+   {
+    "value": "#2563eb",
+    "name": "info",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#111827",
+    "name": "info-2",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#3b82f6",
+    "name": "info-3",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#1d4ed8",
+    "name": "info-4",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#1f2937",
+    "name": "info-5",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#d1d5db",
+    "name": "border",
+    "reason": "Light neutral, typical for dividers"
+   },
+   {
+    "value": "#111111",
+    "name": "text",
+    "reason": "Dark neutral for body text"
+   },
+   {
+    "value": "#16a34a",
+    "name": "success",
+    "reason": "Green hue"
+   },
+   {
+    "value": "#374151",
+    "name": "info-6",
+    "reason": "Blue hue"
+   },
+   {
+    "value": "#7c3aed",
+    "name": "accent",
+    "reason": "Violet / purple hue"
+   }
+  ]
+ },
+ "kind": "source",
+ "source": {
+  "filesReceived": 10,
+  "filesAnalyzed": 5,
+  "styleBlocks": 36,
+  "frameworks": [
+   "React",
+   "Sass",
+   "Tailwind CSS",
+   "Vue"
+  ],
+  "languages": {
+   "tsx": 1,
+   "vue": 1,
+   "scss": 2,
+   "css": 1
+  }
+ },
+ "url": "acme-ui.zip",
+ "domain": "acme-ui",
+ "pagesScanned": [
+  "src/components/Button.tsx",
+  "src/pages/Settings.vue",
+  "src/styles/global.css",
+  "src/styles/marketing.scss"
+ ]
+}

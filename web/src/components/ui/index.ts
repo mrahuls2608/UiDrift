@@ -13,3 +13,7 @@ export * from './Skeleton';
 export * from './ColorSwatch';
 export * from './ComponentPreview';
 export * from './BulletBar';
+export * from './GradientArt';
+export * from './Segmented';
+export * from './Select';
+export * from './Textarea';

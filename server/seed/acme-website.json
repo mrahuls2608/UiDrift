@@ -1,0 +1,1086 @@
+{
+ "score": {
+  "overall": 69,
+  "components": 79,
+  "colors": 67,
+  "typography": 100,
+  "spacing": 53,
+  "radius": 50,
+  "a11yPenalty": 6
+ },
+ "summary": {
+  "components": [
+   {
+    "type": "button",
+    "variants": 10,
+    "ideal": 3
+   },
+   {
+    "type": "input",
+    "variants": 3,
+    "ideal": 2
+   },
+   {
+    "type": "heading",
+    "variants": 6,
+    "ideal": 6
+   },
+   {
+    "type": "link",
+    "variants": 2,
+    "ideal": 3
+   },
+   {
+    "type": "card",
+    "variants": 3,
+    "ideal": 3
+   }
+  ],
+  "colors": {
+   "actual": 18,
+   "ideal": 12
+  },
+  "fontSizes": {
+   "actual": 8,
+   "ideal": 8
+  },
+  "spacing": {
+   "actual": 15,
+   "ideal": 8
+  },
+  "radius": {
+   "actual": 8,
+   "ideal": 4
+  },
+  "a11yIssues": 11
+ },
+ "componentGroups": [
+  {
+   "type": "button",
+   "fingerprint": "bg=#2563eb|color=#ffffff|fontSize=14px|fontWeight=600|paddingY=10px|paddingX=20px|radius=6px|border=none|shadow=none",
+   "styles": {
+    "bg": "#2563eb",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "20px",
+    "radius": "6px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Get started",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#1d4ed8|color=#ffffff|fontSize=16px|fontWeight=700|paddingY=12px|paddingX=28px|radius=10px|border=none|shadow=none",
+   "styles": {
+    "bg": "#1d4ed8",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "16px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "12px",
+    "paddingX": "28px",
+    "radius": "10px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Start free trial",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#ffffff|color=#2563eb|fontSize=14px|fontWeight=400|paddingY=8px|paddingX=16px|radius=1000px|border=1px solid #2563eb|shadow=none",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "#2563eb",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "16px",
+    "radius": "1000px",
+    "border": "1px solid #2563eb",
+    "borderColor": "#2563eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Learn more",
+   "suggested": true
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#7c3aed|color=#ffffff|fontSize=18px|fontWeight=700|paddingY=14px|paddingX=32px|radius=12px|border=none|shadow=#7c3aed66 0px 4px 14px 0px",
+   "styles": {
+    "bg": "#7c3aed",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "18px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "14px",
+    "paddingX": "32px",
+    "radius": "12px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "#7c3aed66 0px 4px 14px 0px",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Book a demo",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#16a34a|color=#ffffff|fontSize=14px|fontWeight=400|paddingY=6px|paddingX=12px|radius=4px|border=none|shadow=none",
+   "styles": {
+    "bg": "#16a34a",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "6px",
+    "paddingX": "12px",
+    "radius": "4px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Choose Starter",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#0ea5e9|color=#ffffff|fontSize=16px|fontWeight=400|paddingY=10px|paddingX=18px|radius=8px|border=none|shadow=none",
+   "styles": {
+    "bg": "#0ea5e9",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "18px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Choose Pro",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#f3f4f6|color=#111827|fontSize=14px|fontWeight=400|paddingY=8px|paddingX=14px|radius=6px|border=1px solid #d1d5db|shadow=none",
+   "styles": {
+    "bg": "#f3f4f6",
+    "color": "#111827",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "14px",
+    "radius": "6px",
+    "border": "1px solid #d1d5db",
+    "borderColor": "#d1d5db",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Contact sales",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#111827|color=#ffffff|fontSize=14px|fontWeight=400|paddingY=10px|paddingX=22px|radius=0px|border=none|shadow=none",
+   "styles": {
+    "bg": "#111827",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "22px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "uppercase"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "TALK TO US",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#dc2626|color=#ffffff|fontSize=14px|fontWeight=400|paddingY=10px|paddingX=18px|radius=2px|border=none|shadow=none",
+   "styles": {
+    "bg": "#dc2626",
+    "color": "#ffffff",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "18px",
+    "radius": "2px",
+    "border": "none",
+    "borderColor": "#ffffff",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Cancel plan",
+   "suggested": false
+  },
+  {
+   "type": "button",
+   "fingerprint": "bg=#efefef|color=#000000|fontSize=14px|fontWeight=400|paddingY=2px|paddingX=6px|radius=0px|border=2px outset #000000|shadow=none",
+   "styles": {
+    "bg": "#efefef",
+    "color": "#000000",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "2px",
+    "paddingX": "6px",
+    "radius": "0px",
+    "border": "2px outset #000000",
+    "borderColor": "#000000",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Load more",
+   "suggested": false
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=#ffffff|color=#000000|fontSize=14px|paddingY=8px|paddingX=12px|radius=6px|border=1px solid #d1d5db|shadow=none",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "#000000",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "8px",
+    "paddingX": "12px",
+    "radius": "6px",
+    "border": "1px solid #d1d5db",
+    "borderColor": "#d1d5db",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/"
+   ],
+   "sampleText": "Work email",
+   "suggested": true
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=#ffffff|color=#000000|fontSize=16px|paddingY=12px|paddingX=12px|radius=0px|border=2px solid #9ca3af|shadow=none",
+   "styles": {
+    "bg": "#ffffff",
+    "color": "#000000",
+    "fontFamily": "arial",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "12px",
+    "paddingX": "12px",
+    "radius": "0px",
+    "border": "2px solid #9ca3af",
+    "borderColor": "#9ca3af",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Coupon code",
+   "suggested": true
+  },
+  {
+   "type": "input",
+   "fingerprint": "bg=#f8fafc|color=#000000|fontSize=14px|paddingY=10px|paddingX=14px|radius=1000px|border=1px solid #cbd5e1|shadow=none",
+   "styles": {
+    "bg": "#f8fafc",
+    "color": "#000000",
+    "fontFamily": "arial",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "10px",
+    "paddingX": "14px",
+    "radius": "1000px",
+    "border": "1px solid #cbd5e1",
+    "borderColor": "#cbd5e1",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Search posts",
+   "suggested": false
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inter|fontSize=20px|fontWeight=700|color=#374151",
+   "styles": {
+    "bg": "transparent",
+    "color": "#374151",
+    "fontFamily": "inter",
+    "fontSize": "20px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#374151",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 7,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Analytics",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inter|fontSize=44px|fontWeight=800|color=#111827",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111827",
+    "fontFamily": "inter",
+    "fontSize": "44px",
+    "fontWeight": "800",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#111827",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 3,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Ship faster with Acme",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inter|fontSize=30px|fontWeight=700|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inter",
+    "fontSize": "30px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#1f2937",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 3,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Everything you need",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inter|fontSize=18px|fontWeight=600|color=#1f2937",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inter",
+    "fontSize": "18px",
+    "fontWeight": "600",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#1f2937",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 3,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Security",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=georgia|fontSize=40px|fontWeight=800|color=#111827",
+   "styles": {
+    "bg": "transparent",
+    "color": "#111827",
+    "fontFamily": "georgia",
+    "fontSize": "40px",
+    "fontWeight": "800",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#111827",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Acme Blog",
+   "suggested": true
+  },
+  {
+   "type": "heading",
+   "fingerprint": "fontFamily=inter|fontSize=26px|fontWeight=700|color=#222222",
+   "styles": {
+    "bg": "transparent",
+    "color": "#222222",
+    "fontFamily": "inter",
+    "fontSize": "26px",
+    "fontWeight": "700",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#222222",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 1,
+   "pages": [
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Latest posts",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#2563eb|fontSize=14px|fontWeight=400|textDecoration=none",
+   "styles": {
+    "bg": "transparent",
+    "color": "#2563eb",
+    "fontFamily": "inter",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#2563eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 15,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/blog",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Home",
+   "suggested": true
+  },
+  {
+   "type": "link",
+   "fingerprint": "color=#3b82f6|fontSize=14px|fontWeight=400|textDecoration=underline",
+   "styles": {
+    "bg": "transparent",
+    "color": "#3b82f6",
+    "fontFamily": "inter",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "0px",
+    "paddingX": "0px",
+    "radius": "0px",
+    "border": "none",
+    "borderColor": "#3b82f6",
+    "shadow": "none",
+    "textDecoration": "underline",
+    "textTransform": "none"
+   },
+   "count": 6,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing",
+    "https://acme.example/about"
+   ],
+   "sampleText": "Terms",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=#f9fafb|radius=8px|border=none|shadow=#00000026 0px 2px 8px 0px|paddingY=24px|paddingX=24px",
+   "styles": {
+    "bg": "#f9fafb",
+    "color": "#1f2937",
+    "fontFamily": "inter",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "24px",
+    "paddingX": "24px",
+    "radius": "8px",
+    "border": "none",
+    "borderColor": "#1f2937",
+    "shadow": "#00000026 0px 2px 8px 0px",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 3,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/blog"
+   ],
+   "sampleText": "Automations Save time",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=transparent|radius=12px|border=1px solid #e5e7eb|shadow=none|paddingY=16px|paddingX=16px",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inter",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "16px",
+    "paddingX": "16px",
+    "radius": "12px",
+    "border": "1px solid #e5e7eb",
+    "borderColor": "#e5e7eb",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Analytics Know your users",
+   "suggested": true
+  },
+  {
+   "type": "card",
+   "fingerprint": "bg=transparent|radius=20px|border=2px solid #dbeafe|shadow=none|paddingY=20px|paddingX=20px",
+   "styles": {
+    "bg": "transparent",
+    "color": "#1f2937",
+    "fontFamily": "inter",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "paddingY": "20px",
+    "paddingX": "20px",
+    "radius": "20px",
+    "border": "2px solid #dbeafe",
+    "borderColor": "#dbeafe",
+    "shadow": "none",
+    "textDecoration": "none",
+    "textTransform": "none"
+   },
+   "count": 2,
+   "pages": [
+    "https://acme.example/",
+    "https://acme.example/pricing"
+   ],
+   "sampleText": "Security SOC2 ready",
+   "suggested": true
+  }
+ ],
+ "colors": [
+  {
+   "hex": "#2563eb",
+   "merged": [
+    "#2563eb"
+   ],
+   "count": 21
+  },
+  {
+   "hex": "#ffffff",
+   "merged": [
+    "#ffffff",
+    "#f9fafb",
+    "#f3f4f6",
+    "#f8fafc"
+   ],
+   "count": 19
+  },
+  {
+   "hex": "#1f2937",
+   "merged": [
+    "#1f2937"
+   ],
+   "count": 13
+  },
+  {
+   "hex": "#374151",
+   "merged": [
+    "#374151"
+   ],
+   "count": 7
+  },
+  {
+   "hex": "#111827",
+   "merged": [
+    "#111827"
+   ],
+   "count": 6
+  },
+  {
+   "hex": "#3b82f6",
+   "merged": [
+    "#3b82f6"
+   ],
+   "count": 6
+  },
+  {
+   "hex": "#000000",
+   "merged": [
+    "#000000"
+   ],
+   "count": 5
+  },
+  {
+   "hex": "#e5e7eb",
+   "merged": [
+    "#e5e7eb",
+    "#efefef"
+   ],
+   "count": 3
+  },
+  {
+   "hex": "#1d4ed8",
+   "merged": [
+    "#1d4ed8"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#7c3aed",
+   "merged": [
+    "#7c3aed"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#d1d5db",
+   "merged": [
+    "#d1d5db"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#dbeafe",
+   "merged": [
+    "#dbeafe"
+   ],
+   "count": 2
+  },
+  {
+   "hex": "#0ea5e9",
+   "merged": [
+    "#0ea5e9"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#16a34a",
+   "merged": [
+    "#16a34a"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#222222",
+   "merged": [
+    "#222222"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#9ca3af",
+   "merged": [
+    "#9ca3af"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#cbd5e1",
+   "merged": [
+    "#cbd5e1"
+   ],
+   "count": 1
+  },
+  {
+   "hex": "#dc2626",
+   "merged": [
+    "#dc2626"
+   ],
+   "count": 1
+  }
+ ],
+ "fontSizes": [
+  {
+   "value": "14px",
+   "count": 32
+  },
+  {
+   "value": "20px",
+   "count": 7
+  },
+  {
+   "value": "18px",
+   "count": 5
+  },
+  {
+   "value": "16px",
+   "count": 4
+  },
+  {
+   "value": "30px",
+   "count": 3
+  },
+  {
+   "value": "44px",
+   "count": 3
+  },
+  {
+   "value": "26px",
+   "count": 1
+  },
+  {
+   "value": "40px",
+   "count": 1
+  }
+ ],
+ "fontFamilies": [
+  {
+   "value": "inter",
+   "count": 38
+  },
+  {
+   "value": "arial",
+   "count": 17
+  },
+  {
+   "value": "georgia",
+   "count": 1
+  }
+ ],
+ "spacing": [
+  {
+   "value": "10px",
+   "count": 50
+  },
+  {
+   "value": "20px",
+   "count": 26
+  },
+  {
+   "value": "12px",
+   "count": 24
+  },
+  {
+   "value": "24px",
+   "count": 18
+  },
+  {
+   "value": "6px",
+   "count": 16
+  },
+  {
+   "value": "8px",
+   "count": 16
+  },
+  {
+   "value": "16px",
+   "count": 12
+  },
+  {
+   "value": "22px",
+   "count": 10
+  },
+  {
+   "value": "14px",
+   "count": 8
+  },
+  {
+   "value": "30px",
+   "count": 6
+  },
+  {
+   "value": "18px",
+   "count": 4
+  },
+  {
+   "value": "28px",
+   "count": 4
+  },
+  {
+   "value": "32px",
+   "count": 4
+  },
+  {
+   "value": "2px",
+   "count": 2
+  },
+  {
+   "value": "26px",
+   "count": 2
+  }
+ ],
+ "radius": [
+  {
+   "value": "6px",
+   "count": 4
+  },
+  {
+   "value": "8px",
+   "count": 4
+  },
+  {
+   "value": "12px",
+   "count": 4
+  },
+  {
+   "value": "1000px",
+   "count": 3
+  },
+  {
+   "value": "10px",
+   "count": 2
+  },
+  {
+   "value": "20px",
+   "count": 2
+  },
+  {
+   "value": "2px",
+   "count": 1
+  },
+  {
+   "value": "4px",
+   "count": 1
+  }
+ ],
+ "a11y": [
+  {
+   "id": "image-alt",
+   "impact": "critical",
+   "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+   "help": "Images must have alternative text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axe-puppeteer",
+   "selector": "img",
+   "page": "https://acme.example/"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "section:nth-child(1) > .muted",
+   "page": "https://acme.example/"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "a[href$=\"terms\"]",
+   "page": "https://acme.example/"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "a[href$=\"privacy\"]",
+   "page": "https://acme.example/"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": ".b4",
+   "page": "https://acme.example/pricing"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": ".b8",
+   "page": "https://acme.example/pricing"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "a[href$=\"terms\"]",
+   "page": "https://acme.example/pricing"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": ".muted",
+   "page": "https://acme.example/blog"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "a[href$=\"terms\"]",
+   "page": "https://acme.example/about"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "a[href$=\"privacy\"]",
+   "page": "https://acme.example/about"
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axe-puppeteer",
+   "selector": "p",
+   "page": "https://acme.example/about"
+  }
+ ],
+ "pagesScanned": [
+  "https://acme.example/",
+  "https://acme.example/pricing",
+  "https://acme.example/blog",
+  "https://acme.example/about"
+ ]
+}

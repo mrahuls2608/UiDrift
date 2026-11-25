@@ -18,6 +18,7 @@ const lazy = (
   }>,
 ) => dynamic(loader, { loading: () => <SectionSkeleton /> });
 
+const InsightsSection = lazy(() => import('./sections/InsightsSection'));
 const ComponentsSection = lazy(() => import('./sections/ComponentsSection'));
 const ColorsSection = lazy(() => import('./sections/ColorsSection'));
 const TypographySection = lazy(() => import('./sections/TypographySection'));
@@ -97,6 +98,7 @@ export function ReportView({ scanId }: { scanId: string }) {
       <div className="flex min-w-0 flex-col gap-12">
         <Overview report={report} />
         <SummaryCards report={report} />
+        <InsightsSection report={report} />
         <ComponentsSection report={report} />
         <ColorsSection report={report} />
         <TypographySection report={report} />

@@ -6,6 +6,7 @@ import { cn } from '@/lib/cn';
 export const REPORT_SECTIONS = [
   ['overview', 'Overview'],
   ['summary', 'Summary'],
+  ['insights', 'Insights'],
   ['components', 'Components'],
   ['colors', 'Colors'],
   ['typography', 'Typography'],
@@ -54,9 +55,7 @@ export function ReportNav() {
       aria-label="Report sections"
       className="sticky top-16 z-30 -mx-4 border-b border-border bg-bg/90 px-4 backdrop-blur lg:top-24 lg:mx-0 lg:border-0 lg:bg-transparent lg:px-0"
     >
-      <p className="mb-2 hidden px-3 font-mono text-xs uppercase tracking-wide text-muted lg:block">
-        On this report
-      </p>
+      <p className="mb-2 hidden px-3 text-sm font-semibold text-muted lg:block">On this report</p>
       <ul className="flex gap-1 overflow-x-auto py-2 lg:flex-col lg:py-0">
         {REPORT_SECTIONS.map(([id, label]) => (
           <li key={id}>

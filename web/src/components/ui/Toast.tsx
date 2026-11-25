@@ -43,7 +43,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             <div
               key={t.id}
               className={cn(
-                'flex items-start gap-3 rounded-lg border bg-surface p-4 shadow-md',
+                'flex items-start gap-3 rounded-md border bg-surface p-4 shadow-lg',
                 t.tone === 'success' ? 'border-success' : 'border-danger',
               )}
             >

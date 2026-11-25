@@ -1,5 +1,12 @@
 export type ComponentType = 'button' | 'input' | 'heading' | 'link' | 'card';
 
+/** What was audited: a live website (headless Chrome) or a project's source code (static analysis). */
+export type ScanKind = 'url' | 'source';
+
+export type InsightsEngine = 'rules' | 'llm';
+
+export type LlmProvider = 'anthropic' | 'openai' | 'openai-compatible';
+
 export type ScanStatus = 'queued' | 'crawling' | 'analysing' | 'done' | 'failed' | 'cancelled';
 
 export type ScanEventType =
@@ -13,8 +20,12 @@ export interface ScanProgress {
 
 export interface ScanDTO {
   id: string;
+  kind: ScanKind;
+  /** Website URL, or a label for the source (repo URL, "upload: app.zip", "pasted code"). */
   url: string;
   domain: string;
+  insightsEngine: InsightsEngine;
+  llmProvider?: LlmProvider;
   status: ScanStatus;
   progress: ScanProgress;
   pagesScanned: string[];
@@ -108,9 +119,45 @@ export interface GeneratedFile {
   content: string;
 }
 
+export type InsightImpact = 'high' | 'medium' | 'low';
+
+export interface InsightRecommendation {
+  title: string;
+  detail: string;
+  impact: InsightImpact;
+  category: 'components' | 'colors' | 'typography' | 'spacing' | 'radius' | 'accessibility';
+}
+
+export interface InsightTokenName {
+  value: string;
+  name: string;
+  reason: string;
+}
+
+export interface Insights {
+  /** `rules` = deterministic engine (no AI). `llm` = rewritten by the user's own model. */
+  engine: InsightsEngine;
+  provider?: LlmProvider;
+  model?: string;
+  summary: string;
+  recommendations: InsightRecommendation[];
+  tokenNames: InsightTokenName[];
+  /** Set when an LLM was requested but failed, so the rule-based insights were used. */
+  fallbackReason?: string;
+}
+
+export interface SourceMeta {
+  filesReceived: number;
+  filesAnalyzed: number;
+  styleBlocks: number;
+  frameworks: string[];
+  languages: Record<string, number>;
+}
+
 export interface ReportDTO {
   id: string;
   scanId: string;
+  kind: ScanKind;
   url: string;
   domain: string;
   pagesScanned: string[];
@@ -133,10 +180,13 @@ export interface ReportDTO {
   a11y: RawA11yIssue[];
   tokens: ReportTokens;
   components: GeneratedFile[];
+  insights: Insights;
+  source?: SourceMeta;
 }
 
 export interface DemoDTO {
   scanId: string;
+  kind: ScanKind;
   url: string;
   domain: string;
   score: number;
@@ -145,6 +195,12 @@ export interface DemoDTO {
 export interface UserDTO {
   id: string;
   email: string;
+  name?: string;
+}
+
+export interface SourceFile {
+  path: string;
+  content: string;
 }
 
 export interface ApiError {

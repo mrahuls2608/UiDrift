@@ -11,6 +11,9 @@ export default tseslint.config(
       '**/node_modules/**',
       '**/coverage/**',
       '**/next-env.d.ts',
+      // Intentionally inconsistent sample project used by tests, the seed script and the CLI demo.
+      'samples/**',
+      'uidrift-report/**',
     ],
   },
   js.configs.recommended,

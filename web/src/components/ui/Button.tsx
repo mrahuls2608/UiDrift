@@ -5,10 +5,12 @@ export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const variants: Record<ButtonVariant, string> = {
-  primary: 'bg-primary text-on-primary hover:glow hover:brightness-110 active:brightness-95',
-  secondary: 'border border-border bg-surface-2 text-text hover:border-muted active:bg-surface',
-  ghost: 'bg-transparent text-muted hover:bg-surface-2 hover:text-text',
-  danger: 'border border-danger bg-transparent text-danger hover:bg-surface-2',
+  primary:
+    'bg-brand text-white shadow-md hover:shadow-lg hover:brightness-110 active:brightness-95',
+  secondary:
+    'border border-border bg-surface text-text shadow-sm hover:border-primary/40 hover:shadow-md',
+  ghost: 'bg-transparent text-muted hover:bg-surface/70 hover:text-text',
+  danger: 'border border-danger/40 bg-surface text-danger hover:bg-danger/10',
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -29,7 +31,7 @@ export const buttonClasses = (
   className?: string,
 ) =>
   cn(
-    'inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md font-semibold transition duration-200',
+    'inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition duration-200',
     'disabled:cursor-not-allowed disabled:opacity-50',
     variants[variant],
     sizes[size],

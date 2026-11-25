@@ -1,9 +1,11 @@
 # Full local stack: MongoDB, Redis, API, scan worker and the Next.js app.
-#   JWT_SECRET=$(openssl rand -hex 32) docker compose up --build
+#   ./scripts/run-demo.sh docker     (generates JWT_SECRET, builds, starts, seeds demo users)
+# or: JWT_SECRET=$(openssl rand -hex 32) docker compose up --build && docker compose run --rm seed
 # Open http://localhost:3000
 services:
   mongo:
     image: mongo:7
+    ports: ['127.0.0.1:27017:27017']
     volumes: [mongo-data:/data/db]
     healthcheck:
       test: ['CMD', 'mongosh', '--quiet', '--eval', "db.adminCommand('ping')"]
@@ -12,6 +14,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    ports: ['127.0.0.1:6379:6379']
     command: ['redis-server', '--appendonly', 'yes']
     volumes: [redis-data:/data]
     healthcheck:
@@ -42,6 +45,15 @@ services:
     depends_on:
       mongo: { condition: service_healthy }
       redis: { condition: service_healthy }
+
+  # One-off: docker compose run --rm seed  (creates demo users and reports)
+  seed:
+    build: { context: ., dockerfile: server/Dockerfile }
+    command: ['node', 'server/dist/scripts/seed.js', '--force']
+    environment: *api-env
+    profiles: ['tools']
+    depends_on:
+      mongo: { condition: service_healthy }
 
   web:
     build: { context: ., dockerfile: web/Dockerfile, args: { API_URL: http://api:4000 } }

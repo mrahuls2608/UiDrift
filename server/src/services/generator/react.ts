@@ -10,7 +10,8 @@ function valueOf(
   lookup: ReturnType<typeof tokenLookup>,
   raw: string | undefined,
 ): string | undefined {
-  if (!raw || raw === 'none' || raw === 'transparent' || !SAFE.test(raw)) return undefined;
+  if (!raw || raw === 'none' || raw === 'transparent' || raw === 'inherit' || !SAFE.test(raw))
+    return undefined;
   return lookup(raw) ?? raw;
 }
 

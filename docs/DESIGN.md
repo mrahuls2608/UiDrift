@@ -9,29 +9,31 @@
 
 ## 2. Design Tokens (UIDrift's own UI)
 
-### Colors — "Drift Console"
-Dark is the default theme (developer-tool context, chosen with the ui-ux-pro-max design-system search: *Dark Mode (OLED)* style, "code dark + run green" palette). Light is opt-in through the theme toggle and stored in `localStorage`.
+### Colors — "Soft Glass"
+Taken from the brand reference: pastel glass cards on a soft periwinkle background, gradient pill CTAs and wave art. **Light is the default**; dark is opt-in via the theme toggle (stored in `localStorage`).
 
-| Token | Dark (default) | Light | Use |
+| Token | Light (default) | Dark | Use |
 |---|---|---|---|
-| `--color-bg` | `#0B1120` | `#F8FAFC` | Page background |
-| `--color-surface` | `#131B2E` | `#FFFFFF` | Cards |
-| `--color-surface-2` | `#1B2438` | `#F1F5F9` | Raised controls, table hover, skeletons |
-| `--color-border` | `#2A3550` | `#DBE2EA` | Borders, dividers |
-| `--color-text` | `#F1F5F9` | `#0F172A` | Main text |
-| `--color-text-muted` | `#94A3B8` | `#475569` | Secondary text |
-| `--color-primary` | `#22C55E` | `#15803D` | Primary actions, links, focus ring |
-| `--color-on-primary` | `#052E16` | `#FFFFFF` | Text on primary |
-| `--color-accent` | `#818CF8` | `#4F46E5` | Code highlights, secondary emphasis |
-| `--color-success` | `#4ADE80` | `#15803D` | Good scores |
-| `--color-warning` | `#FBBF24` | `#B45309` | Medium scores |
-| `--color-danger` | `#F87171` | `#B91C1C` | Poor scores, a11y errors |
+| `--color-bg` | `#EEF0F8` | `#0E0F22` | Page background (plus soft radial glows) |
+| `--color-surface` | `#FFFFFF` | `#17193A` | Cards, inputs (glass cards use 66% opacity + blur) |
+| `--color-surface-2` | `#F4F5FB` | `#1F2147` | Raised controls, skeletons |
+| `--color-border` | `#E2E4F0` | `#2D3060` | Borders, dividers |
+| `--color-text` | `#1E1B4B` | `#EEF0FF` | Main text |
+| `--color-text-muted` | `#565B78` | `#A6ABCF` | Secondary text |
+| `--color-primary` | `#6D4CF2` | `#A594FF` | Links, focus ring, selected states |
+| `--color-on-primary` | `#FFFFFF` | `#120F2E` | Text on primary |
+| `--color-accent` | `#DB2777` | `#F9A8D4` | Eyebrows, highlights |
+| `--color-success` / `warning` / `danger` | `#15803D` / `#B45309` / `#BE123C` | `#4ADE80` / `#FBBF24` / `#FB7185` | Score states |
+| `--color-mint` / `--color-mint-ink` | `#D9F3EE` / `#134E4A` | `#12302D` / `#99F6E4` | Pastel benefit tiles |
+| `--color-blush` / `--color-blush-ink` | `#FDE2EC` / `#831843` | `#3A1428` / `#FBCFE8` | Pastel benefit tiles |
+| `--color-ink` | `#1E1B4B` | `#1E1B4B` | Text on always-light art panels |
+| `--gradient-brand` | `#C2185B → #7C3AED → #2563EB` | pastel | Primary pill buttons, CTA band (≥ 4.5:1 with white text at every stop) |
 
 All text/background pairs meet 4.5:1. Every token also works with Tailwind opacity modifiers (`bg-success/10`) via `color-mix`.
 
 ### Typography
-- Font: **IBM Plex Sans** (UI), **JetBrains Mono** (code, tokens, labels, numbers)
-- Eyebrow labels: mono, 12 px, uppercase, primary color
+- Font: **Plus Jakarta Sans** (UI), **JetBrains Mono** (code, tokens)
+- Eyebrow labels: 14 px semibold, accent color
 - Scale: 12 / 14 / 16 / 20 / 24 / 32 / 48 / 64 px
 - Weights: 400, 500, 600, 700
 - Line height: 1.5 body, 1.2 headings
@@ -40,10 +42,10 @@ All text/background pairs meet 4.5:1. Every token also works with Tailwind opaci
 4 / 8 / 12 / 16 / 24 / 32 / **44** / 48 / 64 / 96 px — 44 px is the minimum touch target for every interactive element
 
 ### Radius
-`--radius-sm: 6px` · `--radius-md: 10px` · `--radius-lg: 16px` · `--radius-full: 9999px`
+`--radius-sm: 10px` · `--radius-md: 16px` · `--radius-lg: 24px` · `--radius-xl: 32px` · `--radius-full: 9999px` (buttons are pills)
 
 ### Shadow
-`--shadow-sm` · `--shadow-md` · `--glow` (primary-tinted ring for hover/focus on primary actions); values differ per theme
+`--shadow-sm` · `--shadow-md` · `--shadow-lg` (soft violet-tinted elevation for glass cards); values differ per theme
 
 ## 3. Score Colors
 
@@ -55,12 +57,12 @@ All text/background pairs meet 4.5:1. Every token also works with Tailwind opaci
 
 ## 4. Screens
 
-### 4.1 Landing page (`/`) — *Product Demo + Features* pattern
-- Hero (two columns): eyebrow, headline "Find the UI drift hiding in your website", terminal-style `$ uidrift scan <url>` prompt + **Scan**, trust row, demo-report chips; right: animated report mock-up (drifted buttons collapse into three standards, merged swatches)
-- Feature bento: component groups · color sprawl · accessibility · export (each with a live mini-visual)
-- How it works: Crawl → Fingerprint → Group → Fix pipeline
-- Final CTA band with a second scan prompt
-- Footer with GitHub link
+### 4.1 Landing page (`/`, the only public page) — from the brand reference
+- Floating glass navigation pill: logo · Features · How it works · Demo · Security · Log in · **Get started** (gradient pill)
+- Hero glass card: eyebrow, "Find the UI drift hiding in your product.", copy, **Start your free audit** + **Watch the demo** pills, three icon highlights; right: pastel wave art panel with dotted grid, glass orb and floating score chips
+- Benefits glass card (1/3 + 2/3): "Key benefits" with mint/blush tiles and "Explore all features"; "Everything you need" carousel (prev/next) of feature cards with art headers and progress bars; stats bar
+- Gallery strip: art · "Your design system, generated" · art
+- Demo video, How it works (4 steps), "Same result, LLM or no LLM" privacy section, gradient CTA band, footer
 
 ### 4.2 Scan progress (`/scan/:id`)
 - Progress bar with steps: Queued → Crawling (page x of y) → Extracting → Analysing → Done
@@ -82,12 +84,17 @@ Layout: left sticky sidebar navigation, main content on the right.
 7. **Accessibility** — one card per axe rule with severity, affected elements (page + selector) and a fix link
 8. **Export** — tabs: `tokens.css` / `tokens.json` / React components; Copy + Download ZIP
 
-### 4.4 Dashboard (`/dashboard`, logged in)
-- Table of saved scans: site, score, date, Re-scan
+### 4.4 Dashboard (`/dashboard`, home after login)
+- KPI tiles (audits run, latest, best), audits table (target, Website/Code, score, date, Re-audit), score history per target, demo reports grid
 - Line chart of score history per site
 
 ### 4.5 Auth (`/login`, `/signup`)
-- Simple centered card form
+- Two columns: benefits aside + glass form card; `?next=` redirect after login; "Log in as demo user" shortcut (hide with `NEXT_PUBLIC_DEMO_LOGIN=false`)
+
+### 4.6 New audit (`/new`)
+- "What do you want to audit?" cards: A live website / Source code
+- Website: URL + pages; Source: Upload (ZIP or folder, read in the browser) · GitHub repo · Paste code
+- Insights cards: Rule-based (no AI, default) / Use my own LLM → provider, model, password-type API key, base URL (compatible only), privacy note
 
 ## 5. Reusable Components
 
@@ -105,6 +112,9 @@ Layout: left sticky sidebar navigation, main content on the right.
 | `CodeBlock` | language, copy button |
 | `ProgressSteps` | steps, current |
 | `BulletBar` | label, value, target, hint |
+| `Segmented` | radio group as pills or cards |
+| `Select` / `Textarea` | label, helper/error text |
+| `GradientArt` | palette (aurora, blush, lagoon, iris), orb, dots — decorative |
 | `EmptyState` | icon, title, action |
 | `Toast` | success, error |
 

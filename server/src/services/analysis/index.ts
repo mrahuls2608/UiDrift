@@ -5,6 +5,7 @@ import {
   type ComponentGroup,
   type PageResult,
   type RawA11yIssue,
+  type RawElement,
   type ReportDTO,
   type ValueCount,
 } from '@uidrift/shared';
@@ -29,10 +30,10 @@ export type AnalysisResult = Pick<
 const MAX_GROUPS_PER_TYPE = 40;
 const MAX_VALUES = 40;
 
-function dedupeA11y(pages: PageResult[]): RawA11yIssue[] {
+function dedupeA11y(issues: RawA11yIssue[]): RawA11yIssue[] {
   const seen = new Set<string>();
   const out: RawA11yIssue[] = [];
-  for (const issue of pages.flatMap((p) => p.a11y)) {
+  for (const issue of issues) {
     const key = `${issue.id}|${issue.page}|${issue.selector}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -52,13 +53,27 @@ function cap<T extends ValueCount | ColorGroup>(list: T[]): T[] {
   return list.slice(0, MAX_VALUES);
 }
 
+export interface AnalysisData {
+  elements: RawElement[];
+  extraStyles?: Record<string, string>[];
+  a11y: RawA11yIssue[];
+}
+
 /** Pure analysis: raw crawl output → scored, grouped report data. */
 export function analyzePages(pages: PageResult[]): AnalysisResult {
-  const elements = pages.flatMap((p) => p.elements);
+  return analyzeData({
+    elements: pages.flatMap((p) => p.elements),
+    a11y: pages.flatMap((p) => p.a11y),
+  });
+}
+
+/** Shared by URL crawls and source-code audits: elements + token blocks + a11y → report data. */
+export function analyzeData(data: AnalysisData): AnalysisResult {
+  const { elements } = data;
   const groups = groupComponents(elements);
-  const dist = buildDistributions(elements);
+  const dist = buildDistributions(elements, data.extraStyles);
   const colors = clusterColors(dist.colorCounts);
-  const a11y = dedupeA11y(pages);
+  const a11y = dedupeA11y(data.a11y);
 
   const score = computeScore({
     groups,

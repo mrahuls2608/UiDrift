@@ -11,6 +11,8 @@ const config: Config = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      /** Fixed white for text and controls on brand gradients and art panels (same in both themes). */
+      white: '#ffffff',
       bg: token('bg'),
       surface: token('surface'),
       'surface-2': token('surface-2'),
@@ -23,6 +25,11 @@ const config: Config = {
       success: token('success'),
       warning: token('warning'),
       danger: token('danger'),
+      mint: token('mint'),
+      'mint-ink': token('mint-ink'),
+      blush: token('blush'),
+      'blush-ink': token('blush-ink'),
+      ink: token('ink'),
     },
     spacing: {
       0: '0',
@@ -50,7 +57,7 @@ const config: Config = {
     },
     fontWeight: { normal: '400', medium: '500', semibold: '600', bold: '700' },
     fontFamily: {
-      sans: ['var(--font-sans)', 'IBM Plex Sans', 'system-ui', 'sans-serif'],
+      sans: ['var(--font-sans)', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       mono: ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
     },
     borderRadius: {
@@ -58,9 +65,15 @@ const config: Config = {
       sm: 'var(--radius-sm)',
       md: 'var(--radius-md)',
       lg: 'var(--radius-lg)',
+      xl: 'var(--radius-xl)',
       full: 'var(--radius-full)',
     },
-    boxShadow: { none: 'none', sm: 'var(--shadow-sm)', md: 'var(--shadow-md)' },
+    boxShadow: {
+      none: 'none',
+      sm: 'var(--shadow-sm)',
+      md: 'var(--shadow-md)',
+      lg: 'var(--shadow-lg)',
+    },
     extend: {
       maxWidth: { content: '1200px', prose: '640px', form: '400px' },
       transitionDuration: { DEFAULT: '150ms', 200: '200ms' },

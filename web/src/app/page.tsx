@@ -1,20 +1,18 @@
 import { Hero } from '@/features/landing/Hero';
-import { Features } from '@/features/landing/Features';
-import { Pipeline } from '@/features/landing/Pipeline';
-import { FinalCta } from '@/features/landing/FinalCta';
+import { Benefits } from '@/features/landing/Benefits';
+import { Gallery } from '@/features/landing/Gallery';
+import { DemoVideo, FinalCta, HowItWorks, Privacy } from '@/features/landing/Sections';
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ url?: string }>;
-}) {
-  const { url } = await searchParams;
+export default function HomePage() {
   return (
-    <>
-      <Hero initialUrl={typeof url === 'string' ? url.slice(0, 2048) : ''} />
-      <Features />
-      <Pipeline />
+    <div className="mx-auto flex max-w-content flex-col gap-8 px-4 pb-16 pt-6">
+      <Hero />
+      <Benefits />
+      <Gallery />
+      <DemoVideo />
+      <HowItWorks />
+      <Privacy />
       <FinalCta />
-    </>
+    </div>
   );
 }

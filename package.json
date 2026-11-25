@@ -19,8 +19,12 @@
     "format": "prettier --write .",
     "typecheck": "npm run typecheck -w shared && npm run typecheck -w server && npm run typecheck -w web",
     "test": "npm test -w server && npm test -w web",
-    "seed:demos": "npm run seed:demos -w server",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "seed": "npm run seed -w server --",
+    "analyze": "npm run analyze -w server --",
+    "analyze:sample": "npm run analyze -w server -- ../samples/acme-ui --out ../uidrift-report",
+    "demo:local": "bash scripts/run-demo.sh local",
+    "demo:docker": "bash scripts/run-demo.sh docker"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -35,7 +39,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --max-warnings=0",
+      "eslint --max-warnings=0 --no-warn-ignored",
       "prettier --check"
     ]
   },

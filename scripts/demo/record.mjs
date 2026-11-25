@@ -1,17 +1,19 @@
 /**
  * Records the UIDrift walkthrough video with Playwright.
  *
- *   node scripts/demo/stub-api.mjs &                     # demo API on :4000
- *   API_URL=http://127.0.0.1:4000 npm run start -w web   # or the standalone server
+ *   npm run demo:fixtures -w server                       # real reports for the demo API
+ *   node scripts/demo/stub-api.mjs &                      # demo API on :4000 (no Mongo/Redis needed)
+ *   API_URL=http://127.0.0.1:4000 node web/.next/standalone/web/server.js &
  *   node scripts/demo/record.mjs [baseUrl] [outDir]
  *
  * Frames come from the Chrome DevTools screencast (sharper than Playwright's built-in VP8
- * recorder) and are encoded to H.264 MP4 + WebM with ffmpeg. Requires `playwright` and `ffmpeg`.
+ * recorder) and are encoded to H.264 MP4 with ffmpeg. Requires `playwright` and `ffmpeg`.
  */
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import { tmpdir } from 'node:os';
 
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
@@ -19,9 +21,9 @@ const { chromium } = require('playwright');
 const BASE = process.argv[2] ?? 'http://127.0.0.1:3000';
 const OUT = resolve(process.argv[3] ?? 'docs/demo');
 const FRAMES = join(OUT, '.frames');
+const SAMPLE = resolve(new URL('../../samples/acme-ui', import.meta.url).pathname);
 const SCALE = 1.5; // 1280×720 CSS px → 1920×1080 video
 
-/** Fake cursor + caption overlay, injected into every page. Never intercepts input. */
 const OVERLAY = () => {
   const install = () => {
     if (document.getElementById('__demo-cursor')) return;
@@ -83,17 +85,48 @@ const OVERLAY = () => {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/** ZIP the bundled sample project (what a user would upload) with the system `zip`/python. */
+function sampleZip() {
+  const zip = join(tmpdir(), 'acme-ui.zip');
+  rmSync(zip, { force: true });
+  execFileSync('python3', [
+    '-c',
+    `
+import os, sys, zipfile
+root, out = sys.argv[1], sys.argv[2]
+with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as z:
+    for d, _, fs in os.walk(root):
+        for f in fs:
+            p = os.path.join(d, f)
+            z.write(p, os.path.join('acme-ui', os.path.relpath(p, root)))
+`,
+    SAMPLE,
+    zip,
+  ]);
+  return zip;
+}
+
 async function main() {
   rmSync(FRAMES, { recursive: true, force: true });
   mkdirSync(FRAMES, { recursive: true });
+  const zipPath = sampleZip();
 
   const browser = await chromium.launch();
   const context = await browser.newContext({
     viewport: { width: 1280, height: 720 },
     deviceScaleFactor: SCALE,
-    colorScheme: 'dark',
   });
   await context.addInitScript(OVERLAY);
+  await context.addInitScript(() => {
+    try {
+      if (!sessionStorage.getItem('__theme-set')) {
+        localStorage.setItem('uidrift-theme', 'light');
+        sessionStorage.setItem('__theme-set', '1');
+      }
+    } catch {
+      /* ignore */
+    }
+  });
   const page = await context.newPage();
 
   const caption = async (html) => {
@@ -104,14 +137,14 @@ async function main() {
     await locator.scrollIntoViewIfNeeded();
     const box = await locator.boundingBox();
     if (!box) throw new Error('element not visible');
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 28 });
-    await sleep(250);
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 26 });
+    await sleep(220);
   };
   const click = async (locator) => {
     await moveTo(locator);
     await locator.click();
   };
-  const scrollTo = async (selector, offset = -96) => {
+  const scrollTo = async (selector, offset = -110) => {
     await page.evaluate(
       ([sel, off]) => {
         const el = document.querySelector(sel);
@@ -129,6 +162,10 @@ async function main() {
     await page.evaluate((y) => window.scrollBy({ top: y, behavior: 'smooth' }), dy);
     await sleep(wait);
   };
+  const top = async () => {
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    await sleep(900);
+  };
 
   // Screencast: frames arrive only when pixels change, each with its own timestamp.
   const frames = [];
@@ -141,7 +178,7 @@ async function main() {
   });
 
   await page.goto(BASE, { waitUntil: 'networkidle' });
-  await page.mouse.move(900, 420);
+  await page.mouse.move(900, 400);
   await cdp.send('Page.startScreencast', {
     format: 'jpeg',
     quality: 92,
@@ -151,111 +188,120 @@ async function main() {
   });
 
   // 1 — Landing
-  await caption('<b>UIDrift</b> finds the UI drift hiding in your website');
-  await sleep(3200);
-  await caption(
-    'Every button, input, heading, link and card — grouped by its <b>real computed styles</b>',
-  );
+  await caption('<b>UIDrift</b> finds the UI drift hiding in your product');
+  await sleep(3400);
+  await caption('Audit a <b>live website</b> or your <b>source code</b> — AI is optional');
   await scrollTo('#features');
-  await sleep(2600);
-  await scrollBy(420, 2200);
-  await caption('Crawl → Fingerprint → Group → Fix');
-  await scrollTo('#how');
-  await sleep(2400);
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
   await sleep(1200);
+  await click(page.getByRole('button', { name: 'Next features' }));
+  await sleep(1300);
+  await click(page.getByRole('button', { name: 'Next features' }));
+  await sleep(1300);
+  await caption('Deterministic by default — add your own Claude or OpenAI key only if you want');
+  await scrollTo('#security');
+  await sleep(2600);
+  await top();
 
-  // 2 — Start a scan
-  await caption('Paste any public URL and press <b>Scan</b>');
-  const input = page.getByLabel('Website URL').first();
-  await click(input);
-  await input.pressSequentially('acme.example', { delay: 90 });
-  await sleep(500);
-  await click(page.getByRole('button', { name: 'Scan' }).first());
+  // 2 — Login (everything after the landing page needs an account)
+  await caption('Everything after the landing page requires an account');
+  await click(page.getByRole('link', { name: 'Log in' }));
+  await page.waitForURL(/\/login/);
+  await sleep(1200);
+  await caption('Seeded demo users make it one click — <b>demo@uidrift.dev</b>');
+  await click(page.getByRole('button', { name: /Log in as demo user/ }));
+  await page.waitForURL(/\/dashboard/);
+  await page.waitForSelector('table');
+  await caption('Your audits, score history and ready-made demo reports');
+  await sleep(2400);
+  await scrollBy(560, 2400);
+  await scrollBy(520, 2000);
+  await top();
 
-  // 3 — Live progress
-  await page.waitForURL(/\/scan\//);
+  // 3 — Source-code audit, no AI
   await caption(
-    'Live progress streamed over <b>Server-Sent Events</b> (BullMQ worker + Redis pub/sub)',
+    'New audit → <b>Source code</b>: upload a ZIP, a folder, a GitHub repo or pasted files',
   );
+  await click(page.getByRole('link', { name: 'New audit' }).first());
+  await page.waitForURL(/\/new/);
+  await sleep(900);
+  await click(page.locator('main label', { hasText: 'Source code' }));
+  await sleep(700);
+  await moveTo(page.getByRole('button', { name: 'Choose ZIP' }));
+  await page.setInputFiles('input[aria-label="ZIP file"]', zipPath);
+  await page.waitForSelector('text=files ready');
+  await caption('Only style and markup files are read — in the browser — and uploaded');
+  await sleep(2400);
+  await caption('Insights: <b>rule-based, no AI</b> (the default)');
+  await moveTo(page.locator('main label', { hasText: 'Rule-based (no AI)' }));
+  await sleep(1400);
+  await click(page.getByRole('button', { name: 'Start audit' }));
+
+  await page.waitForURL(/\/scan\//);
+  await caption('Static analysis of CSS, SCSS, Tailwind, styled-components, JSX, Vue and HTML');
   await page.waitForURL(/\/report\//, { timeout: 30_000 });
   await page.waitForSelector('#overview');
   await sleep(600);
 
   // 4 — Report
-  await caption('A <b>0–100 consistency score</b> with a weighted breakdown per category');
-  await sleep(3800);
+  await caption('A 0–100 score with a weighted breakdown — same scoring for code and websites');
+  await sleep(3600);
   const nav = page.getByRole('navigation', { name: 'Report sections' });
-  await caption('Where the drift is: <b>10 button variants</b> where 3 would do');
-  await click(nav.getByRole('link', { name: 'Summary' }));
-  await sleep(2800);
+  await caption('<b>What to fix first</b>: prioritized, data-backed recommendations');
+  await click(nav.getByRole('link', { name: 'Insights' }));
+  await sleep(2600);
+  await scrollBy(420, 2200);
   await caption(
-    'Each variant rendered from captured styles — the most used become your <b>standard</b>',
+    '11 button variants across CSS, Tailwind and styled-components — with <b>file:line</b>',
   );
   await click(nav.getByRole('link', { name: 'Components' }));
-  await sleep(2200);
-  await scrollBy(380, 1800);
-  await scrollBy(-380, 900);
-  const tabs = page.getByRole('tablist', { name: 'Component types' });
-  await click(tabs.getByRole('tab', { name: /Inputs/ }));
-  await sleep(1500);
-  await click(tabs.getByRole('tab', { name: /Headings/ }));
-  await sleep(1500);
-  await click(tabs.getByRole('tab', { name: /Cards/ }));
-  await sleep(1500);
-  await caption('Near-identical colors merged with <b>CIEDE2000 (ΔE &lt; 3)</b>');
-  await click(nav.getByRole('link', { name: 'Colors' }));
-  await sleep(2600);
-  await caption(
-    'Font size, spacing and radius sprawl — every chart has a <b>table alternative</b>',
-  );
-  await click(nav.getByRole('link', { name: 'Typography' }));
-  await sleep(2200);
-  await click(nav.getByRole('link', { name: 'Spacing & Radius' }));
-  await sleep(2400);
-  await caption('<b>axe-core</b> accessibility issues with element, page and fix');
+  await sleep(2000);
+  await scrollBy(360, 1800);
+  await scrollBy(-360, 800);
+  await caption('Accessibility issues found statically — contrast ratios, labels, alt text, focus');
   await click(nav.getByRole('link', { name: 'Accessibility' }));
-  await sleep(2600);
-  await caption(
-    'Export <b>tokens.css</b>, <b>tokens.json</b> and typed React components — or download a ZIP',
-  );
+  await sleep(2800);
+  await caption('Export <b>tokens.css</b>, <b>tokens.json</b> and typed React components');
   await click(nav.getByRole('link', { name: 'Export' }));
-  await sleep(2200);
-  const exportTabs = page.getByRole('tablist', { name: 'Export formats' });
-  await click(exportTabs.getByRole('tab', { name: 'tokens.json' }));
-  await sleep(1500);
-  await click(exportTabs.getByRole('tab', { name: 'React components' }));
-  await sleep(1200);
-  await scrollBy(360, 2000);
-
-  // 5 — Accounts + history
-  await caption('Log in to save scans and <b>track your score over time</b>');
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  await sleep(900);
-  await click(page.getByRole('link', { name: 'Log in' }));
-  await page.waitForURL(/\/login/);
-  await sleep(600);
-  const email = page.getByLabel('Email');
-  await click(email);
-  await email.pressSequentially('demo@uidrift.dev', { delay: 55 });
-  const password = page.getByLabel('Password');
-  await click(password);
-  await password.pressSequentially('correct-horse', { delay: 55 });
-  await click(page.getByRole('button', { name: 'Log in' }));
-  await page.waitForURL(/\/dashboard/);
-  await page.waitForSelector('table');
-  await caption('Every saved scan with one-click <b>Re-scan</b> and a score-history chart');
-  await sleep(2600);
-  await scrollBy(420, 2600);
-
-  // 6 — Theme
-  await caption(
-    'Dark by default, with a WCAG AA <b>light theme</b> — keyboard and screen-reader friendly',
+  await sleep(1400);
+  await click(
+    page
+      .getByRole('tablist', { name: 'Export formats' })
+      .getByRole('tab', { name: 'React components' }),
   );
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  await sleep(800);
-  await click(page.getByRole('button', { name: /Switch to light theme/ }));
+  await sleep(2000);
+
+  // 5 — Bring your own LLM (optional), then a website audit
+  await top();
+  await caption('Want AI-written insights? Bring your own key — typed per audit, never stored');
+  await click(page.getByRole('link', { name: 'New audit' }).first());
+  await page.waitForURL(/\/new/);
+  await sleep(700);
+  const url = page.getByLabel('Website URL');
+  await click(url);
+  await url.pressSequentially('acme.example', { delay: 80 });
+  await click(page.locator('main label', { hasText: 'Use my own LLM' }));
+  await sleep(900);
+  await moveTo(page.getByLabel('Provider'));
+  await sleep(900);
+  const key = page.getByLabel('API key');
+  await click(key);
+  await key.pressSequentially('sk-ant-••••••••••••', { delay: 40 });
+  await sleep(1600);
+  await caption('Scores and tokens never depend on the LLM — it only rewrites the insights');
   await sleep(2400);
+  await click(page.locator('main label', { hasText: 'Rule-based (no AI)' }));
+  await sleep(600);
+  await caption('Website audits crawl up to 10 pages in headless Chrome, live over SSE');
+  await click(page.getByRole('button', { name: 'Start audit' }));
+  await page.waitForURL(/\/scan\//);
+  await page.waitForURL(/\/report\//, { timeout: 40_000 });
+  await page.waitForSelector('#overview');
+  await sleep(2600);
+
+  // 6 — Theme + outro
+  await caption('Light and dark themes, keyboard and screen-reader friendly');
+  await click(page.getByRole('button', { name: /Switch to dark theme/ }));
+  await sleep(2600);
   await caption('<b>github.com/mrahuls2608/UiDrift</b>');
   await sleep(2600);
 
@@ -280,7 +326,6 @@ function encode(frames) {
   const vf =
     'scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0x0b1120,fps=30,format=yuv420p';
   const mp4 = join(OUT, 'uidrift-demo.mp4');
-  const webm = join(OUT, 'uidrift-demo.webm');
   const ff = (args) =>
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...args], { stdio: 'inherit' });
   ff([
@@ -302,26 +347,9 @@ function encode(frames) {
     '+faststart',
     mp4,
   ]);
-  ff([
-    '-i',
-    mp4,
-    '-c:v',
-    'libvpx-vp9',
-    '-b:v',
-    '0',
-    '-crf',
-    '36',
-    '-row-mt',
-    '1',
-    '-deadline',
-    'good',
-    '-cpu-used',
-    '4',
-    webm,
-  ]);
   ff(['-ss', '8', '-i', mp4, '-frames:v', '1', '-q:v', '3', join(OUT, 'uidrift-demo-poster.jpg')]);
   rmSync(FRAMES, { recursive: true, force: true });
-  console.log(`wrote ${mp4}, ${webm} (${frames.length} frames)`);
+  console.log(`wrote ${mp4} (${frames.length} frames)`);
 }
 
 main().catch((err) => {

@@ -3,50 +3,75 @@
 @tailwind utilities;
 
 /*
- * Design tokens — docs/DESIGN.md §2 ("Drift Console").
- * Dark is the default theme (developer-tool context); light is opt-in via the theme toggle.
+ * Design tokens — docs/DESIGN.md §2 ("Soft Glass").
+ * Light is the default (pastel glass, from the brand reference); dark is opt-in via the toggle.
  */
 :root,
-:root[data-theme='dark'] {
-  --color-bg: #0b1120;
-  --color-surface: #131b2e;
-  --color-surface-2: #1b2438;
-  --color-border: #2a3550;
-  --color-text: #f1f5f9;
-  --color-text-muted: #94a3b8;
-  --color-primary: #22c55e;
-  --color-on-primary: #052e16;
-  --color-accent: #818cf8;
-  --color-success: #4ade80;
-  --color-warning: #fbbf24;
-  --color-danger: #f87171;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --glow: 0 0 0 1px rgba(34, 197, 94, 0.35), 0 8px 32px rgba(34, 197, 94, 0.18);
-  color-scheme: dark;
-}
-
 :root[data-theme='light'] {
-  --color-bg: #f8fafc;
+  --color-bg: #eef0f8;
   --color-surface: #ffffff;
-  --color-surface-2: #f1f5f9;
-  --color-border: #dbe2ea;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-primary: #15803d;
+  --color-surface-2: #f4f5fb;
+  --color-border: #e2e4f0;
+  --color-text: #1e1b4b;
+  --color-text-muted: #565b78;
+  --color-primary: #6d4cf2;
   --color-on-primary: #ffffff;
-  --color-accent: #4f46e5;
+  --color-accent: #db2777;
   --color-success: #15803d;
   --color-warning: #b45309;
-  --color-danger: #b91c1c;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --glow: 0 0 0 1px rgba(21, 128, 61, 0.25), 0 8px 32px rgba(21, 128, 61, 0.12);
+  --color-danger: #be123c;
+  /* Pastel tints (benefit cards) and ink for text on always-light art panels. */
+  --color-mint: #d9f3ee;
+  --color-mint-ink: #134e4a;
+  --color-blush: #fde2ec;
+  --color-blush-ink: #831843;
+  --color-ink: #1e1b4b;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(30, 27, 75, 0.06), 0 1px 1px rgba(30, 27, 75, 0.04);
+  --shadow-md: 0 12px 32px -14px rgba(76, 60, 180, 0.28);
+  --shadow-lg: 0 32px 64px -24px rgba(76, 60, 180, 0.32);
+  /* Brand gradient keeps ≥4.5:1 with white text at every stop. */
+  --gradient-brand: linear-gradient(95deg, #c2185b 0%, #7c3aed 55%, #2563eb 100%);
+  --glass-bg: rgba(255, 255, 255, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --page-glow:
+    radial-gradient(900px 520px at 8% -10%, rgba(244, 114, 182, 0.18), transparent 60%),
+    radial-gradient(800px 600px at 100% 0%, rgba(129, 140, 248, 0.22), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(94, 234, 212, 0.16), transparent 60%);
   color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0e0f22;
+  --color-surface: #17193a;
+  --color-surface-2: #1f2147;
+  --color-border: #2d3060;
+  --color-text: #eef0ff;
+  --color-text-muted: #a6abcf;
+  --color-primary: #a594ff;
+  --color-on-primary: #120f2e;
+  --color-accent: #f9a8d4;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
+  --color-mint: #12302d;
+  --color-mint-ink: #99f6e4;
+  --color-blush: #3a1428;
+  --color-blush-ink: #fbcfe8;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 32px -14px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 32px 64px -24px rgba(0, 0, 0, 0.7);
+  --gradient-brand: linear-gradient(95deg, #f9a8d4 0%, #c4b5fd 55%, #93c5fd 100%);
+  --glass-bg: rgba(23, 25, 58, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --page-glow:
+    radial-gradient(900px 520px at 8% -10%, rgba(219, 39, 119, 0.16), transparent 60%),
+    radial-gradient(800px 600px at 100% 0%, rgba(99, 102, 241, 0.2), transparent 60%);
+  color-scheme: dark;
 }
 
 @layer base {
@@ -55,14 +80,16 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply min-h-screen bg-bg font-sans text-base text-text antialiased;
+    @apply min-h-screen font-sans text-base text-text antialiased;
+    background: var(--page-glow), var(--color-bg);
+    background-attachment: fixed;
   }
   h1,
   h2,
   h3,
   h4 {
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   :focus-visible {
@@ -76,40 +103,40 @@
 }
 
 @layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: var(--shadow-lg);
+  }
+  .bg-brand {
+    background-image: var(--gradient-brand);
+  }
+  .text-brand {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
   .skeleton {
     @apply rounded-sm bg-surface-2;
     animation: pulse 1.5s ease-out infinite;
   }
-  /* Subtle engineering-grid backdrop used behind heroes. */
-  .bg-grid {
-    background-image:
-      linear-gradient(var(--color-border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
-    opacity: 0.35;
-  }
-  .glow {
-    box-shadow: var(--glow);
+  /* Dotted pattern used on art panels and headers. */
+  .bg-dots {
+    background-image: radial-gradient(currentColor 1.2px, transparent 1.3px);
+    background-size: 18px 18px;
   }
   .eyebrow {
-    @apply font-mono text-xs font-medium uppercase text-primary;
-    letter-spacing: 0.08em;
+    @apply text-sm font-semibold text-accent;
   }
-  /* Staggered entrance; children set --i. Disabled under reduced motion. */
   .reveal {
-    animation: reveal 420ms cubic-bezier(0, 0, 0.2, 1) both;
-    animation-delay: calc(var(--i, 0) * 70ms);
+    animation: reveal 480ms cubic-bezier(0, 0, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
   }
-  .caret::after {
-    content: '';
-    display: inline-block;
-    width: 0.55em;
-    height: 1.1em;
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    background: var(--color-primary);
-    animation: blink 1s steps(1) infinite;
+  .float {
+    animation: float 7s ease-in-out infinite;
   }
 }
 
@@ -121,24 +148,12 @@
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
 }
-@keyframes blink {
+@keyframes float {
   50% {
-    opacity: 0;
-  }
-}
-@keyframes collapse {
-  0%,
-  20% {
-    transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--r, 0deg));
-    opacity: 1;
-  }
-  55%,
-  100% {
-    transform: none;
-    opacity: var(--end, 1);
+    transform: translateY(-10px);
   }
 }
 

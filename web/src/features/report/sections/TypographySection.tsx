@@ -14,7 +14,7 @@ const DistributionChart = dynamic(() => import('../DistributionChart'), {
 export default function TypographySection({ report }: { report: ReportDTO }) {
   return (
     <Section
-      eyebrow="05 · Tokens"
+      eyebrow="06 · Tokens"
       id="typography"
       title="Typography"
       description={`${report.summary.fontSizes.actual} font sizes in use. Ideal: ${report.summary.fontSizes.ideal}.`}

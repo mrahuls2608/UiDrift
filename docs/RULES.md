@@ -21,7 +21,7 @@ Rules for anyone (human or AI assistant) writing code in this repo.
 - No commented-out code in commits.
 
 ## 3. Frontend Rules
-- Use only design tokens from `DESIGN.md` — **no hard-coded colors, sizes or spacing**.
+- Use only design tokens from `DESIGN.md` — **no hard-coded colors, sizes or spacing**. The Tailwind scales are replaced by tokens, so a class outside the scale (e.g. `h-40`) silently generates nothing: use a token or an explicit arbitrary value.
 - Build UI only from components in `src/components/ui`. New pattern → new reusable component.
 - Every interactive element must be keyboard accessible with a visible focus state.
 - Every image/icon that carries meaning needs alt text or `aria-label`.
@@ -39,6 +39,9 @@ Rules for anyone (human or AI assistant) writing code in this repo.
   - Resolve DNS and re-check the IP before crawling
 - Rate limit scan creation: 5 per hour per IP.
 - Secrets only in `.env`; never commit `.env`. Keep `.env.example` updated.
+- **LLM keys are user input only.** Never read them from environment variables or config. Hold them encrypted in Redis with a short TTL, read once (`GETDEL`), never write them to MongoDB, logs, errors or API responses.
+- **Scores, groups and tokens must never depend on an LLM.** LLM output may only rewrite insights, and must fall back to rule-based insights on any failure.
+- **Login-only:** every route except `/health` and `/auth/*` sits behind `requireAuth`; reports are visible to their owner (and demo reports to signed-in users).
 
 ## 5. Puppeteer / Crawler Rules (memory safety for free tier)
 - **One scan at a time** (BullMQ worker, concurrency 1).

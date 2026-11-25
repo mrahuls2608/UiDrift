@@ -34,7 +34,7 @@ This "UI drift" makes products look unpolished, slows development and makes desi
 
 ## 4. Non-Goals (v1)
 
-- Scanning pages behind login
+- Scanning website pages behind login (source audits cover private code instead)
 - Scanning mobile apps
 - Visual screenshot diffing
 - Paid plans, teams or billing
@@ -59,7 +59,11 @@ This "UI drift" makes products look unpolished, slows development and makes desi
 | US-7 | Visitor | export design tokens (CSS variables + JSON) | I can start a design system |
 | US-8 | Visitor | export starter React components | I can replace drifted components |
 | US-9 | Registered user | save scans and re-scan later | I can track improvement over time |
-| US-10 | Visitor | open pre-scanned demo reports | I can see value instantly without waiting |
+| US-10 | Registered user | open pre-scanned demo reports | I can see value instantly without waiting |
+| US-11 | Registered user | audit my project's source code (ZIP, folder, GitHub repo or pasted files) | I can find drift before it ships, without a deployed site |
+| US-12 | Registered user | get prioritized recommendations without any AI service | I get a useful, private, free result |
+| US-13 | Registered user | optionally use my own LLM key for an audit | I get better-written insights, with the same scores |
+| US-14 | Developer | run the source audit from the command line | I can use it locally or in CI without the web app |
 
 ## 7. Functional Requirements
 
@@ -85,9 +89,21 @@ This "UI drift" makes products look unpolished, slows development and makes desi
 - FR-15: Export starter React components (Button, Input, Card, Heading) using the tokens.
 - FR-16: Shareable public report link.
 
-### 7.4 Accounts (optional in v1)
-- FR-17: Email + password sign-up with JWT.
-- FR-18: Dashboard listing a user's saved scans and score history chart.
+### 7.4 Accounts (required)
+- FR-17: Email + password sign-up with JWT. **Every audit, report, export and history view requires login**; only the landing page is public.
+- FR-18: Dashboard listing a user's saved audits and score history chart.
+- FR-19: Seeded demo users and demo reports for local and production demos (`npm run seed`).
+
+### 7.5 Source-code audits
+- FR-20: Accept source as a ZIP or folder (read in the browser, only style/markup files uploaded), a public GitHub repository, or pasted files.
+- FR-21: Statically extract styles from CSS, SCSS/Sass, LESS, CSS custom properties, Tailwind classes, CSS-in-JS, React inline styles and Vue/Svelte/HTML style blocks, with `file:line` locations.
+- FR-22: Run static accessibility checks (alt text, labels, button/link names, tabindex, lang, contrast, focus outlines).
+- FR-23: Produce the same report, score and exports as a website audit.
+
+### 7.6 Insights (AI optional)
+- FR-24: Every report includes deterministic, rule-based recommendations and token names.
+- FR-25: The user may supply an LLM (Anthropic, OpenAI or OpenAI-compatible) **per audit, in the UI or CLI — never from server environment variables**. The LLM only rewrites insights; scores, groups and tokens never depend on it. Failures fall back to rule-based insights.
+- FR-26: A CLI runs the source audit offline (`npm run analyze -- <folder>`).
 
 ## 8. Non-Functional Requirements
 

@@ -38,7 +38,15 @@ const STYLE_LABELS: Array<[string, string]> = [
 ];
 const PAGE_SIZE = 12;
 
-function GroupCard({ group, rank }: { group: ComponentGroup; rank: number }) {
+function GroupCard({
+  group,
+  rank,
+  source,
+}: {
+  group: ComponentGroup;
+  rank: number;
+  source: boolean;
+}) {
   const styles = STYLE_LABELS.filter(
     ([k]) => group.styles[k] && !['none', 'transparent', '0px'].includes(group.styles[k] as string),
   );
@@ -48,7 +56,11 @@ function GroupCard({ group, rank }: { group: ComponentGroup; rank: number }) {
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-sm font-semibold">#{rank}</span>
         <span className="text-sm">Used {group.count}×</span>
-        <span className="text-sm text-muted">on {plural(group.pages.length, 'page')}</span>
+        <span className="text-sm text-muted">
+          {source
+            ? `in ${plural(group.pages.length, 'place')}`
+            : `on ${plural(group.pages.length, 'page')}`}
+        </span>
         {group.suggested && <Badge tone="success">Suggested standard</Badge>}
       </div>
       <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
@@ -60,7 +72,9 @@ function GroupCard({ group, rank }: { group: ComponentGroup; rank: number }) {
         ))}
       </dl>
       <details className="text-xs">
-        <summary className="cursor-pointer rounded-sm text-muted hover:text-text">Pages</summary>
+        <summary className="cursor-pointer rounded-sm text-muted hover:text-text">
+          {source ? 'Where it is defined' : 'Pages'}
+        </summary>
         <ul className="mt-1 flex flex-col gap-1">
           {group.pages.map((p) => (
             <li key={p} className="break-all font-mono">
@@ -81,7 +95,7 @@ export default function ComponentsSection({ report }: { report: ReportDTO }) {
 
   return (
     <Section
-      eyebrow="03 · Components"
+      eyebrow="04 · Components"
       id="components"
       title="Components"
       description="Variants are sorted by usage. The most used ones are suggested as your standard."
@@ -107,7 +121,12 @@ export default function ComponentsSection({ report }: { report: ReportDTO }) {
         >
           <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {groups.slice(0, shown).map((g, i) => (
-              <GroupCard key={g.fingerprint} group={g} rank={i + 1} />
+              <GroupCard
+                key={g.fingerprint}
+                group={g}
+                rank={i + 1}
+                source={report.kind === 'source'}
+              />
             ))}
           </ul>
           {groups.length > shown && (

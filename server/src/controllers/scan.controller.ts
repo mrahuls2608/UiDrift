@@ -1,23 +1,32 @@
 import type { Request, Response } from 'express';
-import { createScanSchema, type ScanEvent } from '@uidrift/shared';
+import { createScanSchema, createSourceScanSchema, type ScanEvent } from '@uidrift/shared';
 import { parse } from '../middleware/validate.js';
 import { parseId } from '../lib/id.js';
 import * as scans from '../services/scan.service.js';
 import { recentScanEvents, scanEventBus, TERMINAL_EVENTS } from '../queue/events.js';
 import { toScanDTO } from '../models/scan.model.js';
 
+// Every route here sits behind requireAuth, so req.userId is always set.
+const uid = (req: Request) => req.userId as string;
+
 export async function create(req: Request, res: Response) {
   const input = parse(createScanSchema, req.body);
-  const scan = await scans.createScan(input, req.userId);
+  const scan = await scans.createScan(input, uid(req));
+  res.status(202).json({ scanId: scan.id, scan });
+}
+
+export async function createSource(req: Request, res: Response) {
+  const input = parse(createSourceScanSchema, req.body);
+  const scan = await scans.createSourceScan(input, uid(req));
   res.status(202).json({ scanId: scan.id, scan });
 }
 
 export async function show(req: Request, res: Response) {
-  res.json({ scan: await scans.getScan(parseId(req.params.id), req.userId) });
+  res.json({ scan: await scans.getScan(parseId(req.params.id), uid(req)) });
 }
 
 export async function remove(req: Request, res: Response) {
-  res.json(await scans.cancelOrDeleteScan(parseId(req.params.id), req.userId));
+  res.json(await scans.cancelOrDeleteScan(parseId(req.params.id), uid(req)));
 }
 
 const HEARTBEAT_MS = 15_000;

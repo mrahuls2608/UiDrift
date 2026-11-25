@@ -58,7 +58,7 @@ export default function AccessibilitySection({ report }: { report: ReportDTO }) 
   const groups = groupByRule(report.a11y);
   return (
     <Section
-      eyebrow="07 · WCAG 2.1 AA"
+      eyebrow="08 · WCAG 2.1 AA"
       id="accessibility"
       title="Accessibility"
       description={`${plural(report.a11y.length, 'issue')} across ${plural(groups.length, 'rule')}, found by axe-core (serious and critical, plus the top moderate ones).`}
