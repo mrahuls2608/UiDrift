@@ -1,0 +1,46 @@
+{
+  "name": "uidrift",
+  "private": true,
+  "version": "1.0.0",
+  "description": "UIDrift \u2014 find the UI drift hiding in your website",
+  "workspaces": [
+    "shared",
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "postinstall": "npm run build -w shared",
+    "build:shared": "npm run build -w shared",
+    "build": "npm run build -w shared && npm run build -w server && npm run build -w web",
+    "dev:api": "npm run dev -w server",
+    "dev:worker": "npm run dev:worker -w server",
+    "dev:web": "npm run dev -w web",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "typecheck": "npm run typecheck -w shared && npm run typecheck -w server && npm run typecheck -w web",
+    "test": "npm test -w server && npm test -w web",
+    "seed:demos": "npm run seed:demos -w server",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --max-warnings=0",
+      "prettier --check"
+    ]
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

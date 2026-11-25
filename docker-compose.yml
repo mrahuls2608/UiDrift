@@ -1,0 +1,55 @@
+# Full local stack: MongoDB, Redis, API, scan worker and the Next.js app.
+#   JWT_SECRET=$(openssl rand -hex 32) docker compose up --build
+# Open http://localhost:3000
+services:
+  mongo:
+    image: mongo:7
+    volumes: [mongo-data:/data/db]
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      retries: 5
+
+  api:
+    build: { context: ., dockerfile: server/Dockerfile }
+    environment: &api-env
+      NODE_ENV: production
+      PORT: 4000
+      MONGODB_URI: mongodb://mongo:27017/uidrift
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET (32+ chars)}
+      CLIENT_URL: ${CLIENT_URL:-http://localhost:3000}
+      RUN_WORKER_INLINE: 'false'
+    ports: ['4000:4000']
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+
+  worker:
+    build: { context: ., dockerfile: server/Dockerfile }
+    command: ['node', 'server/dist/worker.js']
+    environment: *api-env
+    shm_size: 512m
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+
+  web:
+    build: { context: ., dockerfile: web/Dockerfile, args: { API_URL: http://api:4000 } }
+    environment:
+      API_URL: http://api:4000
+    ports: ['3000:3000']
+    depends_on: [api]
+
+volumes:
+  mongo-data:
+  redis-data:

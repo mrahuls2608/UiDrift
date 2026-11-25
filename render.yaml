@@ -1,0 +1,25 @@
+# Render blueprint for the API (free web service). The scan worker runs inline (RUN_WORKER_INLINE=true)
+# so a single free instance is enough. Redis: Render Key Value (free) or Upstash free tier.
+services:
+  - type: web
+    name: uidrift-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build -w server
+    startCommand: node server/dist/index.js
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/project/.cache/puppeteer
+      - key: RUN_WORKER_INLINE
+        value: 'true'
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
