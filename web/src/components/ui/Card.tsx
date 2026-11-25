@@ -10,8 +10,9 @@ export function Card({ variant = 'default', as: Tag = 'div', className, ...props
   return (
     <Tag
       className={cn(
-        'rounded-md border border-border bg-surface p-4 shadow-sm sm:p-6',
-        variant === 'interactive' && 'transition hover:border-primary hover:shadow-md',
+        'rounded-lg border border-border bg-surface p-4 shadow-sm sm:p-6',
+        variant === 'interactive' &&
+          'transition duration-200 hover:-translate-y-px hover:border-muted hover:shadow-md',
         className,
       )}
       {...props}

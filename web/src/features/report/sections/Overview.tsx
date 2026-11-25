@@ -1,9 +1,9 @@
 'use client';
 
 import type { ReportDTO } from '@uidrift/shared';
-import { Download, Share2 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+import { CalendarDays, Download, FileStack, Share2, ShieldAlert } from 'lucide-react';
+import { Button, buttonClasses } from '@/components/ui/Button';
+import { BulletBar } from '@/components/ui/BulletBar';
 import { ScoreRing } from '@/components/ui/ScoreRing';
 import { useToast } from '@/components/ui/Toast';
 import { formatDate, plural } from '@/lib/format';
@@ -33,57 +33,60 @@ export function Overview({ report }: { report: ReportDTO }) {
   };
 
   return (
-    <section id="overview" aria-labelledby="overview-heading" className="scroll-mt-16">
-      <Card className="flex flex-col gap-6 lg:flex-row lg:items-center">
-        <div className="flex justify-center">
-          <ScoreRing value={report.score.overall} size={176} />
-        </div>
-        <div className="flex flex-1 flex-col gap-4">
-          <div>
+    <section id="overview" aria-labelledby="overview-heading" className="scroll-mt-24">
+      <div className="relative overflow-hidden rounded-lg border border-border bg-surface">
+        <div aria-hidden className="bg-grid absolute inset-0" />
+        <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[auto_1fr_minmax(240px,320px)] lg:items-center">
+          <div className="flex justify-center">
+            <ScoreRing value={report.score.overall} size={176} />
+          </div>
+          <div className="flex min-w-0 flex-col gap-4">
+            <p className="eyebrow">Consistency report</p>
             <h1 id="overview-heading" className="break-all text-xl font-bold sm:text-2xl">
               {report.domain}
             </h1>
-            <p className="text-sm text-muted">
-              <a
-                href={report.url}
-                target="_blank"
-                rel="noreferrer nofollow"
-                className="underline hover:text-text"
-              >
-                {report.url}
-              </a>{' '}
-              · {plural(report.pagesScanned.length, 'page')} scanned ·{' '}
-              {formatDate(report.createdAt)}
-            </p>
-          </div>
-          <dl className="grid grid-cols-2 gap-2 sm:grid-cols-5">
-            {CATEGORIES.map(([key, label, weight]) => (
-              <div key={key} className="rounded-sm border border-border bg-bg p-2">
-                <dt className="text-xs text-muted">
-                  {label} <span className="sr-only">weight</span>({weight})
-                </dt>
-                <dd className="text-lg font-bold">{report.score[key]}</dd>
-              </div>
-            ))}
-          </dl>
-          {report.score.a11yPenalty > 0 && (
-            <p className="text-sm text-muted">
-              Accessibility issues lowered the score by {report.score.a11yPenalty} points.
-            </p>
-          )}
-          <div className="flex flex-wrap gap-2">
-            <Button variant="secondary" onClick={share}>
-              <Share2 aria-hidden size={16} /> Share
-            </Button>
             <a
-              href="#export"
-              className="inline-flex h-12 items-center gap-2 rounded-sm bg-primary px-4 text-sm font-semibold text-on-primary hover:opacity-90"
+              href={report.url}
+              target="_blank"
+              rel="noreferrer nofollow"
+              className="break-all font-mono text-sm text-muted underline hover:text-text"
             >
-              <Download aria-hidden size={16} /> Export
+              {report.url}
             </a>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+              <li className="flex items-center gap-2">
+                <FileStack aria-hidden size={16} /> {plural(report.pagesScanned.length, 'page')}{' '}
+                scanned
+              </li>
+              <li className="flex items-center gap-2">
+                <CalendarDays aria-hidden size={16} /> {formatDate(report.createdAt)}
+              </li>
+              {report.score.a11yPenalty > 0 && (
+                <li className="flex items-center gap-2">
+                  <ShieldAlert aria-hidden size={16} /> −{report.score.a11yPenalty} for
+                  accessibility
+                </li>
+              )}
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              <a href="#export" className={buttonClasses('primary')}>
+                <Download aria-hidden size={16} /> Export tokens
+              </a>
+              <Button variant="secondary" onClick={share}>
+                <Share2 aria-hidden size={16} /> Share
+              </Button>
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 rounded-md border border-border bg-bg/60 p-4">
+            <p className="font-mono text-xs uppercase tracking-wide text-muted">
+              Score breakdown · target 80
+            </p>
+            {CATEGORIES.map(([key, label, weight]) => (
+              <BulletBar key={key} label={label} hint={weight} value={report.score[key]} />
+            ))}
           </div>
         </div>
-      </Card>
+      </div>
     </section>
   );
 }

@@ -1,22 +1,28 @@
 import type { Config } from 'tailwindcss';
 
 /** Every value maps to a design token from docs/DESIGN.md — the scales are replaced, not extended. */
+/** Token colors that also support Tailwind opacity modifiers (e.g. bg-success/10) via color-mix. */
+const token = (name: string) =>
+  `color-mix(in srgb, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`;
+
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      bg: 'var(--color-bg)',
-      surface: 'var(--color-surface)',
-      border: 'var(--color-border)',
-      text: 'var(--color-text)',
-      muted: 'var(--color-text-muted)',
-      primary: 'var(--color-primary)',
-      'on-primary': 'var(--color-on-primary)',
-      success: 'var(--color-success)',
-      warning: 'var(--color-warning)',
-      danger: 'var(--color-danger)',
+      bg: token('bg'),
+      surface: token('surface'),
+      'surface-2': token('surface-2'),
+      border: token('border'),
+      text: token('text'),
+      muted: token('text-muted'),
+      primary: token('primary'),
+      'on-primary': token('on-primary'),
+      accent: token('accent'),
+      success: token('success'),
+      warning: token('warning'),
+      danger: token('danger'),
     },
     spacing: {
       0: '0',
@@ -27,8 +33,10 @@ const config: Config = {
       4: '16px',
       6: '24px',
       8: '32px',
+      11: '44px',
       12: '48px',
       16: '64px',
+      24: '96px',
     },
     fontSize: {
       xs: ['12px', { lineHeight: '1.5' }],
@@ -37,11 +45,12 @@ const config: Config = {
       lg: ['20px', { lineHeight: '1.2' }],
       xl: ['24px', { lineHeight: '1.2' }],
       '2xl': ['32px', { lineHeight: '1.2' }],
-      '3xl': ['48px', { lineHeight: '1.2' }],
+      '3xl': ['48px', { lineHeight: '1.1' }],
+      '4xl': ['64px', { lineHeight: '1.05' }],
     },
     fontWeight: { normal: '400', medium: '500', semibold: '600', bold: '700' },
     fontFamily: {
-      sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+      sans: ['var(--font-sans)', 'IBM Plex Sans', 'system-ui', 'sans-serif'],
       mono: ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
     },
     borderRadius: {

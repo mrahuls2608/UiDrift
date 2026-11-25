@@ -82,10 +82,15 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
   return (
     <div className="flex flex-col gap-6">
       <Card className="flex flex-col gap-6">
-        <div className="flex flex-col gap-1">
-          <p className="text-sm text-muted">Scanning</p>
-          <p className="break-all text-lg font-semibold">{scan.url}</p>
-          <p className="text-xs text-muted">Started {formatDateTime(scan.createdAt)}</p>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex min-w-0 flex-col gap-1">
+            <p className="eyebrow">Scanning</p>
+            <p className="break-all font-mono text-lg font-semibold">{scan.url}</p>
+            <p className="text-xs text-muted">Started {formatDateTime(scan.createdAt)}</p>
+          </div>
+          <p className="font-mono text-2xl font-semibold text-primary" aria-hidden>
+            {percent}%
+          </p>
         </div>
 
         <ProgressSteps
@@ -109,10 +114,10 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={percent}
-            className="h-2 w-full overflow-hidden rounded-full bg-border"
+            className="h-2 w-full overflow-hidden rounded-full bg-surface-2"
           >
             <div
-              className="h-full rounded-full bg-primary transition-all duration-200"
+              className="glow h-full rounded-full bg-primary transition-all duration-200"
               style={{ width: `${percent}%` }}
             />
           </div>
@@ -121,7 +126,7 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
         {scan.status === 'failed' && (
           <div
             role="alert"
-            className="flex items-start gap-2 rounded-sm border border-danger p-4 text-sm text-danger"
+            className="flex items-start gap-2 rounded-md border border-danger/40 bg-danger/10 p-4 text-sm text-danger"
           >
             <AlertCircle aria-hidden size={18} />
             <span>{scan.error ?? 'The scan failed.'}</span>
@@ -150,30 +155,55 @@ export function ScanProgressView({ scanId }: { scanId: string }) {
         </div>
       </Card>
 
-      <Card as="section" aria-labelledby="log-heading">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 id="log-heading" className="text-base font-semibold">
+      <section
+        aria-labelledby="log-heading"
+        className="overflow-hidden rounded-lg border border-border bg-bg"
+      >
+        <div className="flex items-center justify-between gap-2 border-b border-border bg-surface px-4 py-3">
+          <h2 id="log-heading" className="flex items-center gap-2 font-mono text-sm font-semibold">
+            <span
+              aria-hidden
+              className={
+                mode === 'live'
+                  ? 'h-2 w-2 animate-pulse rounded-full bg-primary'
+                  : 'h-2 w-2 rounded-full bg-muted'
+              }
+            />
             Live log
           </h2>
-          <span className="text-xs text-muted">
-            {mode === 'live' ? 'Live' : mode === 'polling' ? 'Updating every 3 s' : 'Connecting'}
+          <span className="font-mono text-xs text-muted">
+            {mode === 'live'
+              ? 'streaming'
+              : mode === 'polling'
+                ? 'polling every 3 s'
+                : 'connecting'}
           </span>
         </div>
-        {log.length === 0 ? (
-          <p className="text-sm text-muted">Waiting for the first event…</p>
-        ) : (
-          <ol className="flex flex-col gap-2" aria-live="polite">
-            {log.map((e) => (
-              <li key={`${e.at}-${e.type}-${e.message}`} className="flex gap-3 text-sm">
-                <time className="shrink-0 font-mono text-xs text-muted" dateTime={e.at}>
-                  {new Date(e.at).toLocaleTimeString()}
-                </time>
-                <span className="break-all">{e.message}</span>
-              </li>
-            ))}
-          </ol>
-        )}
-      </Card>
+        <div className="p-4 font-mono text-sm">
+          {log.length === 0 ? (
+            <p className="caret text-muted">waiting for events</p>
+          ) : (
+            <ol className="flex flex-col gap-2" aria-live="polite">
+              {log.map((e, i) => (
+                <li key={`${e.at}-${e.type}-${e.message}`} className="flex gap-3">
+                  <time className="shrink-0 text-xs leading-6 text-muted" dateTime={e.at}>
+                    {new Date(e.at).toLocaleTimeString()}
+                  </time>
+                  <span className={i === 0 ? 'break-all text-text' : 'break-all text-muted'}>
+                    <span
+                      aria-hidden
+                      className={e.type === 'failed' ? 'text-danger' : 'text-primary'}
+                    >
+                      {e.type === 'failed' ? '✗ ' : '› '}
+                    </span>
+                    {e.message}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { History, RefreshCw } from 'lucide-react';
+import { History, RefreshCw, Plus } from 'lucide-react';
+import { StatCard } from '@/components/ui/StatCard';
 import { scoreLabel, scoreTone, type ScanDTO } from '@uidrift/shared';
 import { Badge } from '@/components/ui/Badge';
 import { Button, buttonClasses } from '@/components/ui/Button';
@@ -93,13 +94,41 @@ export function DashboardView() {
     );
   }
 
+  const done = scans.data.filter((s) => s.status === 'done' && s.score !== undefined);
+  const latest = done[0]?.score;
+  const best = done.reduce((m, s) => Math.max(m, s.score ?? 0), 0);
+  const domains = new Set(scans.data.map((s) => s.domain)).size;
+
   return (
     <div className="flex flex-col gap-8">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <ul className="grid flex-1 gap-4 sm:grid-cols-3">
+          <li>
+            <StatCard title="Sites tracked" value={domains} />
+          </li>
+          <li>
+            <StatCard
+              title="Latest score"
+              value={latest ?? '—'}
+              tone={latest === undefined ? undefined : scoreTone(latest)}
+              toneLabel={latest === undefined ? undefined : scoreLabel(latest)}
+            />
+          </li>
+          <li>
+            <StatCard title="Best score" value={done.length ? best : '—'} />
+          </li>
+        </ul>
+      </div>
+      <div className="flex justify-end">
+        <Link href="/" className={buttonClasses('primary')}>
+          <Plus aria-hidden size={16} /> New scan
+        </Link>
+      </div>
       <Card className="overflow-x-auto p-0 sm:p-0">
         <table className="w-full min-w-[560px] text-left text-sm">
           <caption className="sr-only">Your saved scans</caption>
           <thead>
-            <tr className="border-b border-border text-muted">
+            <tr className="border-b border-border font-mono text-xs uppercase tracking-wide text-muted">
               <th scope="col" className="p-4 font-medium">
                 Site
               </th>
@@ -116,7 +145,10 @@ export function DashboardView() {
           </thead>
           <tbody>
             {scans.data.map((s) => (
-              <tr key={s.id} className="border-b border-border last:border-0">
+              <tr
+                key={s.id}
+                className="border-b border-border transition duration-200 last:border-0 hover:bg-surface-2"
+              >
                 <td className="p-4">
                   <Link
                     href={s.status === 'done' ? `/report/${s.id}` : `/scan/${s.id}`}

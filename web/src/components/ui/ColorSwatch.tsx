@@ -10,7 +10,7 @@ export function ColorSwatch({ hex, count, merged = [] }: ColorSwatchProps) {
   const color = safeColor(hex) ?? 'transparent';
   const extra = merged.filter((m) => m !== hex);
   return (
-    <figure className="flex flex-col overflow-hidden rounded-md border border-border bg-surface">
+    <figure className="flex flex-col overflow-hidden rounded-lg border border-border bg-surface">
       <div
         className="h-16 w-full border-b border-border"
         style={{ backgroundColor: color }}

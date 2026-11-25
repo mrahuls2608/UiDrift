@@ -15,6 +15,7 @@ export default function SpacingSection({ report }: { report: ReportDTO }) {
   const { summary } = report;
   return (
     <Section
+      eyebrow="06 · Tokens"
       id="spacing"
       title="Spacing & Radius"
       description="Padding and margin values (rounded to 2 px) and border radii found on components."

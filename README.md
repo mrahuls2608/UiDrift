@@ -4,7 +4,9 @@
 
 UIDrift scans a website, pulls out every button, input, heading, link and card along with its real computed styles, groups the near-duplicates and gives the site a **UI consistency score**. It then generates **design tokens** and **starter React components** from the most common patterns, so teams can move to a consistent design system.
 
-![UIDrift report](docs/screenshots/report.png)
+[![Watch the 90-second demo](docs/demo/uidrift-demo-poster.jpg)](docs/demo/uidrift-demo.mp4)
+
+▶ **[Watch the demo video](docs/demo/uidrift-demo.mp4)** (90 s, 1080p · [WebM](docs/demo/uidrift-demo.webm)): landing → scan → live progress → full report → export → dashboard → light theme.
 
 ---
 
@@ -23,15 +25,19 @@ Large products are built by many teams. Over time they collect 15 kinds of butto
 - ⚛️ **Code generation**: starter React `Button`, `Input`, `Card` and `Heading` components (a test compiles them with strict TypeScript)
 - ⚡ **Live progress**: Server-Sent Events backed by Redis pub/sub, with a polling fallback
 - 📈 **History**: accounts, saved scans, re-scan and a score-over-time chart
-- 🌗 Dark mode, keyboard navigation, reduced motion, WCAG 2.1 AA UI
+- 🌗 Dark-first "Drift Console" UI with a light theme, keyboard navigation, reduced motion, WCAG 2.1 AA
 
-| Landing                                  | Scan progress                      | Dashboard                                    |
-| ---------------------------------------- | ---------------------------------- | -------------------------------------------- |
-| ![Landing](docs/screenshots/landing.png) | ![Scan](docs/screenshots/scan.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+| Landing                                  | Report                                 |
+| ---------------------------------------- | -------------------------------------- |
+| ![Landing](docs/screenshots/landing.png) | ![Report](docs/screenshots/report.png) |
 
-| Dark mode                                 | Mobile                                        |
-| ----------------------------------------- | --------------------------------------------- |
-| ![Dark](docs/screenshots/report-dark.png) | ![Mobile](docs/screenshots/report-mobile.png) |
+| Live scan progress                 | Accessibility                                        | Dashboard                                    |
+| ---------------------------------- | ---------------------------------------------------- | -------------------------------------------- |
+| ![Scan](docs/screenshots/scan.png) | ![Accessibility](docs/screenshots/accessibility.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+
+| Login                                | Light theme                                        | Mobile                                        |
+| ------------------------------------ | -------------------------------------------------- | --------------------------------------------- |
+| ![Login](docs/screenshots/login.png) | ![Light theme](docs/screenshots/landing-light.png) | ![Mobile](docs/screenshots/report-mobile.png) |
 
 ## Tech Stack
 
@@ -107,6 +113,22 @@ npm run test:coverage -w server            # with coverage thresholds (≥ 70%)
 TEST_REDIS_URL=redis://127.0.0.1:6379/1 CHROME_PATH=/path/to/chrome npm test -w server
 ```
 
+## Recording the demo video
+
+The video is recorded by a Playwright script against the production Next.js build and a demo API that
+replays a genuine report (produced by the real crawler + analysis engine from a deliberately inconsistent
+test site), so no MongoDB, Redis or network access is needed:
+
+```bash
+npm run build -w web
+cp -r web/.next/static web/.next/standalone/web/.next/static
+node scripts/demo/stub-api.mjs &                                          # demo API on :4000
+API_URL=http://127.0.0.1:4000 node web/.next/standalone/web/server.js &   # app on :3000
+node scripts/demo/record.mjs http://127.0.0.1:3000 docs/demo              # needs playwright + ffmpeg
+```
+
+Frames are captured over the Chrome DevTools screencast and encoded to H.264 MP4 and VP9 WebM with ffmpeg.
+
 ## Project Structure
 
 ```
@@ -114,7 +136,8 @@ UiDrift/
 ├── shared/   # @uidrift/shared: types, zod schemas, score constants
 ├── server/   # Express API, BullMQ worker, crawler, analysis engine, generators
 ├── web/      # Next.js app (UI kit in src/components/ui)
-└── docs/     # PRD, DESIGN, RULES, TRD, PHASES, screenshots
+├── scripts/demo/  # demo video recorder + demo API
+└── docs/     # PRD, DESIGN, RULES, TRD, PHASES, screenshots, demo video
 ```
 
 ## API (short)

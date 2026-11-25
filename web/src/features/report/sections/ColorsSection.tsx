@@ -8,6 +8,7 @@ export default function ColorsSection({ report }: { report: ReportDTO }) {
   const { colors, summary } = report;
   return (
     <Section
+      eyebrow="04 · Tokens"
       id="colors"
       title="Colors"
       description={`${summary.colors.actual} distinct colors after merging near-identical shades (ΔE < 3). Ideal: ${summary.colors.ideal}.`}

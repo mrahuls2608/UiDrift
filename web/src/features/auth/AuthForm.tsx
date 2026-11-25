@@ -33,8 +33,11 @@ export function AuthForm({ mode }: { mode: 'login' | 'signup' }) {
   };
 
   return (
-    <Card className="w-full max-w-form">
-      <h1 className="mb-6 text-xl font-bold">{isLogin ? 'Log in' : 'Create your account'}</h1>
+    <Card className="w-full max-w-form sm:p-8">
+      <p className="eyebrow mb-2">{isLogin ? 'Welcome back' : 'Free forever'}</p>
+      <h1 className="mb-6 text-xl font-bold">
+        {isLogin ? 'Log in to UIDrift' : 'Create your account'}
+      </h1>
       <form onSubmit={submit} noValidate className="flex flex-col gap-4">
         <Input
           label="Email"

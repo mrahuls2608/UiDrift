@@ -4,10 +4,10 @@ import { cn } from '@/lib/cn';
 export type BadgeTone = 'success' | 'warning' | 'danger' | 'neutral';
 
 const tones: Record<BadgeTone, string> = {
-  success: 'border-success text-success',
-  warning: 'border-warning text-warning',
-  danger: 'border-danger text-danger',
-  neutral: 'border-border text-muted',
+  success: 'border-success/40 bg-success/10 text-success',
+  warning: 'border-warning/40 bg-warning/10 text-warning',
+  danger: 'border-danger/40 bg-danger/10 text-danger',
+  neutral: 'border-border bg-surface-2 text-muted',
 };
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
@@ -18,7 +18,7 @@ export function Badge({ tone = 'neutral', className, ...props }: BadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1 rounded-full border px-2 text-xs font-semibold',
+        'inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2 py-px font-mono text-xs font-medium',
         tones[tone],
         className,
       )}

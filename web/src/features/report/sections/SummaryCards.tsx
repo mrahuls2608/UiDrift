@@ -31,11 +31,14 @@ export function SummaryCards({ report }: { report: ReportDTO }) {
     <section
       id="summary"
       aria-labelledby="summary-heading"
-      className="scroll-mt-16 flex flex-col gap-4"
+      className="flex scroll-mt-24 flex-col gap-6"
     >
-      <h2 id="summary-heading" className="text-xl font-bold">
-        Summary
-      </h2>
+      <div className="flex flex-col gap-2 border-b border-border pb-4">
+        <p className="eyebrow">02 · Summary</p>
+        <h2 id="summary-heading" className="text-xl font-bold">
+          Where the drift is
+        </h2>
+      </div>
       <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {cards.map((c) => {
           const [t, label] = tone(c.actual, c.ideal);

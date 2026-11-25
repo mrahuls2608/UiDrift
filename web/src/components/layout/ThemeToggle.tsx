@@ -6,9 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 type Theme = 'light' | 'dark';
 
 function currentTheme(): Theme {
-  const set = document.documentElement.dataset.theme;
-  if (set === 'light' || set === 'dark') return set;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
 }
 
 export function ThemeToggle() {
@@ -33,7 +31,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-sm text-muted transition hover:bg-surface hover:text-text"
+      className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-muted transition duration-200 hover:bg-surface-2 hover:text-text"
     >
       {theme === 'dark' ? <Sun aria-hidden size={18} /> : <Moon aria-hidden size={18} />}
     </button>

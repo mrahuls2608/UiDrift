@@ -29,18 +29,34 @@ export function ReportNav() {
       },
       { rootMargin: '-64px 0px -60% 0px' },
     );
-    for (const [id] of REPORT_SECTIONS) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
+    // Sections below the fold are lazy-loaded, so attach to each one as it appears.
+    const observed = new Set<string>();
+    const attach = () => {
+      for (const [id] of REPORT_SECTIONS) {
+        const el = document.getElementById(id);
+        if (el && !observed.has(id)) {
+          observed.add(id);
+          observer.observe(el);
+        }
+      }
+    };
+    attach();
+    const mutations = new MutationObserver(attach);
+    mutations.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+    };
   }, []);
 
   return (
     <nav
       aria-label="Report sections"
-      className="sticky top-0 z-10 -mx-4 border-b border-border bg-bg px-4 lg:top-6 lg:mx-0 lg:border-0 lg:px-0"
+      className="sticky top-16 z-30 -mx-4 border-b border-border bg-bg/90 px-4 backdrop-blur lg:top-24 lg:mx-0 lg:border-0 lg:bg-transparent lg:px-0"
     >
+      <p className="mb-2 hidden px-3 font-mono text-xs uppercase tracking-wide text-muted lg:block">
+        On this report
+      </p>
       <ul className="flex gap-1 overflow-x-auto py-2 lg:flex-col lg:py-0">
         {REPORT_SECTIONS.map(([id, label]) => (
           <li key={id}>
@@ -48,8 +64,10 @@ export function ReportNav() {
               href={`#${id}`}
               aria-current={active === id ? 'location' : undefined}
               className={cn(
-                'block whitespace-nowrap rounded-sm px-3 py-2 text-sm transition',
-                active === id ? 'bg-surface font-semibold text-text' : 'text-muted hover:text-text',
+                'flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md border-l-2 px-3 text-sm transition duration-200 lg:rounded-l-none',
+                active === id
+                  ? 'border-primary bg-surface font-semibold text-text'
+                  : 'border-transparent text-muted hover:bg-surface hover:text-text',
               )}
             >
               {label}

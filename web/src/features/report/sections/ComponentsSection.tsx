@@ -81,6 +81,7 @@ export default function ComponentsSection({ report }: { report: ReportDTO }) {
 
   return (
     <Section
+      eyebrow="03 · Components"
       id="components"
       title="Components"
       description="Variants are sorted by usage. The most used ones are suggested as your standard."

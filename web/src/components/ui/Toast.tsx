@@ -43,7 +43,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             <div
               key={t.id}
               className={cn(
-                'flex items-start gap-3 rounded-md border bg-bg p-4 shadow-md',
+                'flex items-start gap-3 rounded-lg border bg-surface p-4 shadow-md',
                 t.tone === 'success' ? 'border-success' : 'border-danger',
               )}
             >
@@ -57,7 +57,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 type="button"
                 onClick={() => dismiss(t.id)}
                 aria-label="Dismiss notification"
-                className="rounded-sm text-muted hover:text-text"
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-sm text-muted hover:bg-surface-2 hover:text-text"
               >
                 <X aria-hidden size={16} />
               </button>

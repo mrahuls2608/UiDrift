@@ -9,36 +9,41 @@
 
 ## 2. Design Tokens (UIDrift's own UI)
 
-### Colors
-| Token | Light | Dark | Use |
-|---|---|---|---|
-| `--color-bg` | `#FFFFFF` | `#0B0F17` | Page background |
-| `--color-surface` | `#F6F7F9` | `#141A24` | Cards |
-| `--color-border` | `#E3E6EB` | `#232B38` | Borders, dividers |
-| `--color-text` | `#111827` | `#E6E9EF` | Main text |
-| `--color-text-muted` | `#5B6472` | `#9AA3B2` | Secondary text |
-| `--color-primary` | `#4F46E5` | `#818CF8` | Buttons, links |
-| `--color-on-primary` | `#FFFFFF` | `#0B0F17` | Text on primary (white on `#818CF8` fails 4.5:1) |
-| `--color-success` | `#15803D` | `#4ADE80` | Good scores |
-| `--color-warning` | `#B45309` | `#FBBF24` | Medium scores |
-| `--color-danger` | `#B91C1C` | `#F87171` | Poor scores, a11y errors |
+### Colors — "Drift Console"
+Dark is the default theme (developer-tool context, chosen with the ui-ux-pro-max design-system search: *Dark Mode (OLED)* style, "code dark + run green" palette). Light is opt-in through the theme toggle and stored in `localStorage`.
 
-All text/background pairs must meet 4.5:1 contrast.
+| Token | Dark (default) | Light | Use |
+|---|---|---|---|
+| `--color-bg` | `#0B1120` | `#F8FAFC` | Page background |
+| `--color-surface` | `#131B2E` | `#FFFFFF` | Cards |
+| `--color-surface-2` | `#1B2438` | `#F1F5F9` | Raised controls, table hover, skeletons |
+| `--color-border` | `#2A3550` | `#DBE2EA` | Borders, dividers |
+| `--color-text` | `#F1F5F9` | `#0F172A` | Main text |
+| `--color-text-muted` | `#94A3B8` | `#475569` | Secondary text |
+| `--color-primary` | `#22C55E` | `#15803D` | Primary actions, links, focus ring |
+| `--color-on-primary` | `#052E16` | `#FFFFFF` | Text on primary |
+| `--color-accent` | `#818CF8` | `#4F46E5` | Code highlights, secondary emphasis |
+| `--color-success` | `#4ADE80` | `#15803D` | Good scores |
+| `--color-warning` | `#FBBF24` | `#B45309` | Medium scores |
+| `--color-danger` | `#F87171` | `#B91C1C` | Poor scores, a11y errors |
+
+All text/background pairs meet 4.5:1. Every token also works with Tailwind opacity modifiers (`bg-success/10`) via `color-mix`.
 
 ### Typography
-- Font: **Inter** (UI), **JetBrains Mono** (code, tokens)
-- Scale: 12 / 14 / 16 / 20 / 24 / 32 / 48 px
+- Font: **IBM Plex Sans** (UI), **JetBrains Mono** (code, tokens, labels, numbers)
+- Eyebrow labels: mono, 12 px, uppercase, primary color
+- Scale: 12 / 14 / 16 / 20 / 24 / 32 / 48 / 64 px
 - Weights: 400, 500, 600, 700
 - Line height: 1.5 body, 1.2 headings
 
 ### Spacing
-4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 px
+4 / 8 / 12 / 16 / 24 / 32 / **44** / 48 / 64 / 96 px — 44 px is the minimum touch target for every interactive element
 
 ### Radius
 `--radius-sm: 6px` · `--radius-md: 10px` · `--radius-lg: 16px` · `--radius-full: 9999px`
 
 ### Shadow
-`--shadow-sm: 0 1px 2px rgba(0,0,0,.06)` · `--shadow-md: 0 4px 12px rgba(0,0,0,.08)`
+`--shadow-sm` · `--shadow-md` · `--glow` (primary-tinted ring for hover/focus on primary actions); values differ per theme
 
 ## 3. Score Colors
 
@@ -50,11 +55,11 @@ All text/background pairs must meet 4.5:1 contrast.
 
 ## 4. Screens
 
-### 4.1 Landing page (`/`)
-- Hero: headline "Find the UI drift hiding in your website", URL input + **Scan** button
-- "Try a demo report" chips (3–4 pre-scanned sites)
-- How it works: Crawl → Fingerprint → Group → Fix (4 steps)
-- Sample report preview image
+### 4.1 Landing page (`/`) — *Product Demo + Features* pattern
+- Hero (two columns): eyebrow, headline "Find the UI drift hiding in your website", terminal-style `$ uidrift scan <url>` prompt + **Scan**, trust row, demo-report chips; right: animated report mock-up (drifted buttons collapse into three standards, merged swatches)
+- Feature bento: component groups · color sprawl · accessibility · export (each with a live mini-visual)
+- How it works: Crawl → Fingerprint → Group → Fix pipeline
+- Final CTA band with a second scan prompt
 - Footer with GitHub link
 
 ### 4.2 Scan progress (`/scan/:id`)
@@ -66,7 +71,7 @@ All text/background pairs must meet 4.5:1 contrast.
 ### 4.3 Report (`/report/:id`)
 Layout: left sticky sidebar navigation, main content on the right.
 
-1. **Overview** — big score ring, label, site URL, pages scanned, date, Share + Export buttons
+1. **Overview** — big score ring, label, site URL, pages scanned, date, Export + Share buttons, and a *bullet chart* per category (value, qualitative bands, target 80)
 2. **Summary cards** — "14 button variants → suggest 3", "37 colors → suggest 12", etc.
 3. **Components** — tabs: Buttons / Inputs / Headings / Links / Cards
    - Each group shows a live rendered preview, count, pages it appears on and its key styles
@@ -74,7 +79,7 @@ Layout: left sticky sidebar navigation, main content on the right.
 4. **Colors** — swatch grid, merged groups, usage count
 5. **Typography** — font size bar chart, font families list
 6. **Spacing & Radius** — value distribution charts
-7. **Accessibility** — issue list with severity, element, page and fix hint
+7. **Accessibility** — one card per axe rule with severity, affected elements (page + selector) and a fix link
 8. **Export** — tabs: `tokens.css` / `tokens.json` / React components; Copy + Download ZIP
 
 ### 4.4 Dashboard (`/dashboard`, logged in)
@@ -99,11 +104,12 @@ Layout: left sticky sidebar navigation, main content on the right.
 | `ColorSwatch` | hex, count |
 | `CodeBlock` | language, copy button |
 | `ProgressSteps` | steps, current |
+| `BulletBar` | label, value, target, hint |
 | `EmptyState` | icon, title, action |
 | `Toast` | success, error |
 
 ## 6. Interaction & Motion
-- Transitions 150–200 ms, ease-out
+- Transitions 150–200 ms, ease-out; entrance reveals 420 ms staggered by 70 ms (CSS only)
 - Score ring animates from 0 on first load
 - Respect `prefers-reduced-motion`
 - Skeleton loaders instead of spinners on report sections

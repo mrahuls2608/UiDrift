@@ -22,8 +22,8 @@ export function CodeBlock({ code, language, filename }: CodeBlockProps) {
     }
   };
   return (
-    <figure className="overflow-hidden rounded-md border border-border bg-surface">
-      <figcaption className="flex items-center justify-between gap-2 border-b border-border px-4 py-2">
+    <figure className="overflow-hidden rounded-lg border border-border bg-bg">
+      <figcaption className="flex items-center justify-between gap-2 border-b border-border bg-surface px-4 py-1">
         <span className="font-mono text-xs text-muted">{filename ?? language}</span>
         <Button
           variant="ghost"

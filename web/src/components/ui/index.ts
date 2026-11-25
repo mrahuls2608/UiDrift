@@ -12,3 +12,4 @@ export * from './Toast';
 export * from './Skeleton';
 export * from './ColorSwatch';
 export * from './ComponentPreview';
+export * from './BulletBar';
