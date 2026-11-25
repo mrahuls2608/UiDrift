@@ -77,6 +77,7 @@ All signed-in users also see two **demo reports**. Use `npm run seed -- --passwo
 - 🎨 **Exports.** `tokens.css`, `tokens.json`, typed React `Button`/`Input`/`Card`/`Heading` (a test compiles them with strict TypeScript), or everything as a ZIP.
 - 📈 **History.** Re-audit websites and GitHub repos in one click and track the score over time.
 - ⌨️ **CLI.** `npm run analyze -- ./project` gives the same audit offline.
+- ✨ **Motion.** Spring "pop" entrances on load, scroll-triggered reveals, and a scroll-driven "How it works" scene where a ball rolls (real rotation = distance ÷ radius), hops between the four steps and lights them up ([clip](docs/demo/scroll-animations.mp4)). All of it is off under reduced motion.
 - 🌗 Soft-glass light theme (dark optional), keyboard navigation, reduced motion, WCAG 2.1 AA.
 
 ## How it works

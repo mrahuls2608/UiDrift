@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { buttonClasses } from '@/components/ui/Button';
 import { GradientArt, type ArtPalette } from '@/components/ui/GradientArt';
+import { Reveal } from '@/components/motion/Reveal';
 
 const FEATURES: Array<{
   icon: typeof Boxes;
@@ -97,20 +98,29 @@ export function Benefits() {
         </p>
         <span aria-hidden className="h-1 w-12 rounded-full bg-brand" />
         <ul className="grid grid-cols-2 gap-4">
-          <li className="flex flex-col gap-2 rounded-md bg-mint p-4 text-mint-ink shadow-sm">
+          <Reveal
+            as="li"
+            variant="pop"
+            className="flex flex-col gap-2 rounded-md bg-mint p-4 text-mint-ink shadow-sm"
+          >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/70">
               <Globe aria-hidden size={18} />
             </span>
             <span className="text-sm font-bold">Website audits</span>
             <span className="text-xs">Real computed styles from up to 10 pages.</span>
-          </li>
-          <li className="flex flex-col gap-2 rounded-md bg-blush p-4 text-blush-ink shadow-sm">
+          </Reveal>
+          <Reveal
+            as="li"
+            variant="pop"
+            delay={140}
+            className="flex flex-col gap-2 rounded-md bg-blush p-4 text-blush-ink shadow-sm"
+          >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/70">
               <FileCode2 aria-hidden size={18} />
             </span>
             <span className="text-sm font-bold">Code audits</span>
             <span className="text-xs">ZIP, GitHub repo or pasted files.</span>
-          </li>
+          </Reveal>
         </ul>
         <Link href="/signup" className={buttonClasses('secondary', 'md', 'self-start')}>
           Explore all features <ArrowRight aria-hidden size={16} />

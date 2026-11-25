@@ -140,6 +140,85 @@
   }
 }
 
+/*
+ * Motion — docs/DESIGN.md §6.
+ * .pop: on-load spring entrance. [data-reveal]: scroll-triggered entrances (Reveal component).
+ * Content is only hidden when JS is running (html.js), so it never disappears without scripts.
+ */
+@layer utilities {
+  .pop {
+    animation: pop-in 640ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: calc(var(--i, 0) * 90ms);
+  }
+  .pop-bounce {
+    animation:
+      pop-bounce 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both,
+      float 7s ease-in-out 1.2s infinite;
+    animation-delay: calc(var(--i, 0) * 90ms), calc(1.2s + var(--i, 0) * 90ms);
+  }
+}
+
+html.js [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 600ms cubic-bezier(0, 0, 0.2, 1),
+    transform 700ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+html.js [data-reveal='up'] {
+  transform: translateY(40px);
+}
+html.js [data-reveal='pop'] {
+  transform: scale(0.86);
+}
+html.js [data-reveal='zoom'] {
+  transform: scale(1.08);
+}
+html.js [data-reveal='left'] {
+  transform: translateX(-56px);
+}
+html.js [data-reveal='right'] {
+  transform: translateX(56px);
+}
+html.js [data-reveal='tilt'] {
+  transform: perspective(900px) rotateX(14deg) translateY(36px);
+}
+html.js [data-reveal][data-inview='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-progress {
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pop-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes pulse {
   50% {
     opacity: 0.5;
@@ -158,6 +237,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   *,
   *::before,
   *::after {

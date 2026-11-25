@@ -31,7 +31,8 @@ export const viewport: Viewport = {
 };
 
 /** Applies the saved theme before paint to avoid a flash of the wrong theme. */
-const themeScript = `try{var t=localStorage.getItem('uidrift-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}`;
+/** Applies the saved theme before paint, and marks JS as available so scroll reveals may start hidden. */
+const themeScript = `document.documentElement.classList.add('js');try{var t=localStorage.getItem('uidrift-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

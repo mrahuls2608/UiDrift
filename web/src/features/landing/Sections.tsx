@@ -1,14 +1,6 @@
 import Link from 'next/link';
-import {
-  ArrowRight,
-  Fingerprint,
-  Globe,
-  KeyRound,
-  Layers,
-  ShieldCheck,
-  Sparkles,
-  Wrench,
-} from 'lucide-react';
+import { ArrowRight, KeyRound, ShieldCheck, Sparkles } from 'lucide-react';
+import { Reveal } from '@/components/motion/Reveal';
 import { buttonClasses } from '@/components/ui/Button';
 import { GradientArt } from '@/components/ui/GradientArt';
 
@@ -43,60 +35,6 @@ export function DemoVideo() {
   );
 }
 
-const STEPS = [
-  {
-    icon: Globe,
-    title: 'Point it at your UI',
-    text: 'A public URL, a ZIP of your repo, a GitHub link or pasted files.',
-  },
-  {
-    icon: Fingerprint,
-    title: 'Fingerprint',
-    text: 'Real computed styles (website) or authored styles (code) for every component.',
-  },
-  {
-    icon: Layers,
-    title: 'Group & score',
-    text: 'Near-duplicates merge (≤ 2 px, ΔE < 3); every category scores 0–100.',
-  },
-  {
-    icon: Wrench,
-    title: 'Fix',
-    text: 'Prioritized recommendations, tokens and starter React components.',
-  },
-];
-
-export function HowItWorks() {
-  return (
-    <section
-      id="how"
-      aria-labelledby="how-heading"
-      className="glass scroll-mt-24 rounded-xl p-6 sm:p-12"
-    >
-      <div className="mb-8 flex flex-col gap-2">
-        <p className="eyebrow">How it works</p>
-        <h2 id="how-heading" className="text-xl font-bold sm:text-2xl">
-          From messy UI to design system in four steps
-        </h2>
-      </div>
-      <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map(({ icon: Icon, title, text }, i) => (
-          <li key={title} className="flex flex-col gap-3 rounded-md bg-surface/70 p-6 shadow-sm">
-            <span className="flex items-center justify-between">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white shadow-md">
-                <Icon aria-hidden size={18} />
-              </span>
-              <span className="text-sm font-semibold text-muted">0{i + 1}</span>
-            </span>
-            <h3 className="text-base font-semibold">{title}</h3>
-            <p className="text-sm text-muted">{text}</p>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
-}
-
 const PROMISES = [
   {
     icon: ShieldCheck,
@@ -122,7 +60,9 @@ export function Privacy() {
       aria-labelledby="privacy-heading"
       className="glass grid scroll-mt-24 gap-8 overflow-hidden rounded-xl p-6 sm:p-12 lg:grid-cols-[1fr_1.2fr] lg:items-center"
     >
-      <GradientArt palette="lagoon" className="hidden h-full min-h-[320px] rounded-lg lg:block" />
+      <Reveal variant="left" className="hidden h-full lg:block">
+        <GradientArt palette="lagoon" className="h-full min-h-[320px] rounded-lg" />
+      </Reveal>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <p className="eyebrow">Works with or without AI</p>
@@ -131,8 +71,8 @@ export function Privacy() {
           </h2>
         </div>
         <ul className="flex flex-col gap-4">
-          {PROMISES.map(({ icon: Icon, title, text }) => (
-            <li key={title} className="flex gap-4">
+          {PROMISES.map(({ icon: Icon, title, text }, i) => (
+            <Reveal as="li" variant="right" delay={i * 120} key={title} className="flex gap-4">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface shadow-sm">
                 <Icon aria-hidden size={18} />
               </span>
@@ -140,7 +80,7 @@ export function Privacy() {
                 <span className="font-semibold">{title}</span>
                 <span className="text-sm text-muted">{text}</span>
               </span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

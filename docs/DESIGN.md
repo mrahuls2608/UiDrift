@@ -119,10 +119,13 @@ Layout: left sticky sidebar navigation, main content on the right.
 | `Toast` | success, error |
 
 ## 6. Interaction & Motion
-- Transitions 150–200 ms, ease-out; entrance reveals 420 ms staggered by 70 ms (CSS only)
-- Score ring animates from 0 on first load
-- Respect `prefers-reduced-motion`
-- Skeleton loaders instead of spinners on report sections
+- Transitions 150–200 ms, ease-out, for hovers and state changes.
+- **On-load pop** (`.pop`, `.pop-bounce`): hero elements enter with a springy overshoot (640 ms, `cubic-bezier(0.34, 1.56, 0.64, 1)`), staggered 90 ms; floating chips bounce in, then float.
+- **Scroll reveals** (`<Reveal variant="up|pop|zoom|left|right|tilt" delay>`): one IntersectionObserver per element, fires once, animates only `opacity`/`transform`. Content is hidden only when JS runs (`html.js`), so nothing disappears without scripts.
+- **Rolling-ball scene** (`RollingSteps`, "How it works"): a 260vh section with a sticky panel. Scroll progress drives a striped ball along a track. Its rotation equals distance ÷ radius (it truly rolls), it hops in an arc between the four stops and squashes on landing, the trail fills, and each step lights up when reached. The physics is a pure, unit-tested function (`lib/motion.ts`). Large screens show all four steps (current one raised); small screens show the current step.
+- **Scroll progress bar**: 4 px brand gradient at the top of the landing page.
+- Score ring animates from 0 on first load. Skeleton loaders instead of spinners on report sections.
+- **Reduced motion:** all of the above is disabled. Reveals show immediately, pops don't animate, and the rolling scene becomes a static four-step list (no sticky scroll).
 
 ## 7. Responsive Breakpoints
 - Mobile < 640 px: sidebar becomes top tab bar
