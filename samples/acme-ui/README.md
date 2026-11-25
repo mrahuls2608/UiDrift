@@ -6,3 +6,5 @@ Four teams styled it four ways: SCSS, Tailwind, styled-components and inline sty
 ```bash
 npm run analyze -- samples/acme-ui        # from the repository root, no LLM needed
 ```
+
+To try the upload flow in the app, use [`samples/acme-ui.zip`](../acme-ui.zip): **New audit → Source code → Upload → Choose ZIP**.
